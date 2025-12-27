@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/feed.tsx","./src/components/feedbackmodal.tsx","./src/components/postcard.tsx","./src/components/ui/avatar.tsx","./src/hooks/usegameloop.ts","./src/lib/utils.ts"],"errors":true,"version":"5.9.3"}

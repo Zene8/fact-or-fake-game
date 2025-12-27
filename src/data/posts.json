@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "content": "Just got my hands on the new QuantumBook Pro. The processing speed is mind-blowing! #quantumcomputing #futuretech",
+    "timestamp": "2025-12-27T10:00:00Z",
+    "type": "Verified",
+    "reasoning": ""
+  },
+  {
+    "id": 2,
+    "userId": 51,
+    "content": "Drinking celery juice every morning can cure all diseases. #health #naturalremedy",
+    "timestamp": "2025-12-27T10:05:00Z",
+    "type": "Misinformation",
+    "reasoning": "There is no scientific evidence to support this claim. While celery juice can be a healthy drink, it cannot cure diseases."
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "content": "The latest superhero movie was a masterpiece! The special effects were incredible. #movies #cinema",
+    "timestamp": "2025-12-27T10:10:00Z",
+    "type": "Verified",
+    "reasoning": ""
+  },
+  {
+    "id": 4,
+    "userId": 53,
+    "content": "Invest in MoonCoin now! It's guaranteed to go to the moon. #crypto #blockchain",
+    "timestamp": "2025-12-27T10:15:00Z",
+    "type": "Misinformation",
+    "reasoning": "Cryptocurrencies are highly volatile and their value can go down as well as up. There are no guarantees in investing."
+  },
+  {
+    "id": 5,
+    "userId": 5,
+    "content": "Just booked a trip to Bali! Can't wait to explore the beautiful beaches and temples. #travel #wanderlust",
+    "timestamp": "2025-12-27T10:20:00Z",
+    "type": "Verified",
+    "reasoning": ""
+  },
+  {
+    "id": 6,
+    "userId": 56,
+    "content": "The Earth is flat. All the pictures of a round Earth are fake. #flatearth #truth",
+    "timestamp": "2025-12-27T10:25:00Z",
+    "type": "Misinformation",
+    "reasoning": "There is overwhelming scientific evidence that the Earth is a sphere. This has been confirmed by countless observations and experiments."
+  },
+  {
+    "id": 7,
+    "userId": 7,
+    "content": "New study shows that moderate coffee consumption can reduce the risk of certain diseases. #health #science",
+    "timestamp": "2025-12-27T10:30:00Z",
+    "type": "Verified",
+    "reasoning": ""
+  },
+  {
+    "id": 8,
+    "userId": 58,
+    "content": "Aliens built the pyramids. Mainstream archaeology is lying to you. #ancientaliens #history",
+    "timestamp": "2025-12-27T10:35:00Z",
+    "type": "Misinformation",
+    "reasoning": "Archaeological evidence clearly shows that the pyramids were built by ancient Egyptians using their own engineering techniques."
+  },
+  {
+    "id": 9,
+    "userId": 9,
+    "content": "Excited to announce my new book, 'The Future of AI', is coming out next month! #AI #books",
+    "timestamp": "2025-12-27T10:40:00Z",
+    "type": "Verified",
+    "reasoning": ""
+  },
+  {
+    "id": 10,
+    "userId": 60,
+    "content": "Vaccines cause autism. Do your own research! #vaccines #healthfreedom",
+    "timestamp": "2025-12-27T10:45:00Z",
+    "type": "Misinformation",
+    "reasoning": "Numerous scientific studies have debunked any link between vaccines and autism. This claim has been widely discredited by the medical community."
+  }
+]
