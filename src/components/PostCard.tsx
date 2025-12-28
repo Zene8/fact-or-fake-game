@@ -1,75 +1,159 @@
 import type { Post } from '../types';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/Avatar';
-import { MessageCircle, Repeat, Heart, BarChart2, MoreHorizontal, BadgeCheck } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { formatTimeAgo } from '../lib/utils';
+import { MessageCircle, Repeat, Heart, BarChart2, Upload, Bookmark, Check, X } from 'lucide-react';
+import { useState, useRef } from 'react'; // Import useState and useRef
 
-interface PostCardProps {
+interface Props {
   post: Post;
-  onClassify: (isMisinformation: boolean) => void;
+  onClassify: (postId: number, isFake: boolean) => void;
 }
 
-export function PostCard({ post, onClassify }: PostCardProps) {
+export function PostCard({ post, onClassify }: Props) {
+  const replies = Math.floor(post.id % 100);
+  const retweets = Math.floor(post.id % 500);
+  const likes = Math.floor(post.id % 2000);
+  const views = Math.floor(post.id % 10000);
+
+  const engagementIcons = [
+    { icon: MessageCircle, count: replies, color: 'hover:text-accent' },
+    { icon: Repeat, count: retweets, color: 'hover:text-green-500' },
+    { icon: Heart, count: likes, color: 'hover:text-red-500' },
+    { icon: BarChart2, count: views, color: 'hover:text-accent' },
+    { icon: Bookmark, color: 'hover:text-accent' },
+    { icon: Upload, color: 'hover:text-accent' },
+  ];
+
+  const [translateX, setTranslateX] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+  const startX = useRef(0);
+  const currentX = useRef(0);
+  const postCardRef = useRef<HTMLDivElement>(null); // Ref for the main post card div
+
+  const SWIPE_THRESHOLD = 100; // Pixels to trigger a classification
+
+  const handleStart = (clientX: number) => {
+    if (post.classified) return; // Prevent swiping already classified posts
+    setIsSwiping(true);
+    startX.current = clientX;
+    currentX.current = clientX;
+    if (postCardRef.current) {
+      postCardRef.current.style.transition = 'none'; // Disable transition during swipe
+    }
+  };
+
+  const handleMove = (clientX: number) => {
+    if (!isSwiping || post.classified) return;
+    currentX.current = clientX;
+    const deltaX = currentX.current - startX.current;
+    setTranslateX(deltaX);
+  };
+
+  const handleEnd = () => {
+    if (!isSwiping || post.classified) return;
+    setIsSwiping(false);
+    const deltaX = currentX.current - startX.current;
+
+    if (postCardRef.current) {
+      postCardRef.current.style.transition = 'transform 0.3s ease-out'; // Re-enable transition
+    }
+
+    if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
+      const isFake = deltaX < 0; // Swipe left for fake, right for fact
+      onClassify(post.id, isFake);
+      // Animate post off-screen
+      setTranslateX(isFake ? -window.innerWidth : window.innerWidth);
+    } else {
+      // Snap back to original position
+      setTranslateX(0);
+    }
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => handleStart(e.touches[0].clientX);
+  const onTouchMove = (e: React.TouchEvent) => handleMove(e.touches[0].clientX);
+  const onTouchEnd = () => handleEnd();
+
+  const onMouseDown = (e: React.MouseEvent) => handleStart(e.clientX);
+  const onMouseMove = (e: React.MouseEvent) => handleMove(e.clientX);
+  const onMouseUp = () => handleEnd();
+  const onMouseLeave = () => { // Handle case where mouse leaves while dragging
+    if (isSwiping) handleEnd();
+  };
+
+  // Determine banner visibility and opacity
+  const swipeProgress = Math.abs(translateX) / SWIPE_THRESHOLD;
+  const factBannerOpacity = translateX > 0 ? Math.min(swipeProgress, 1) : 0;
+  const fakeBannerOpacity = translateX < 0 ? Math.min(swipeProgress, 1) : 0;
+
   return (
-    <div className="bg-black border-b border-gray-800 p-4 hover:bg-gray-900/50 transition-colors duration-200 cursor-pointer">
-      <div className="flex">
-        <div className="mr-3 flex-shrink-0">
-          <Avatar className="h-10 w-10"> {/* Adjusted avatar size */}
-            <AvatarImage
-              src={post.avatar}
-              alt={`${post.username}'s avatar`}
-              loading="lazy"
-              className={cn(post.type === 'Misinformation' && 'filter grayscale blur-[0.5px]')} // Subtle uncanny factor
-            />
-            <AvatarFallback>{post.username.charAt(0)}</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex-1">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-1 whitespace-nowrap text-[15px]">
-              <p className="font-bold text-white">{post.username}</p>
-              <p className="text-gray-400">@{post.handle}</p>
-              {post.type === 'Verified' && (
-                <BadgeCheck className="text-blue-500 ml-1" size={16} />
-              )}
-              <p className="text-gray-400">·</p>
-              <p className="text-gray-400 text-sm">1h</p>
-            </div>
-            <MoreHorizontal className="text-gray-400" size={18} />
-          </div>
-          <p className="text-white mt-1 text-[15px] leading-relaxed">{post.content}</p>
-          <div className="flex justify-between text-gray-400 mt-3 max-w-md">
-            <div className="flex items-center space-x-1 text-sm hover:text-blue-500 transition-colors duration-200">
-              <MessageCircle size={16} />
-              <span className="text-xs">{Math.floor(Math.random() * 1000)}</span>
-            </div>
-            <div className="flex items-center space-x-1 text-sm hover:text-green-500 transition-colors duration-200">
-              <Repeat size={16} />
-              <span className="text-xs">{Math.floor(Math.random() * 1000)}</span>
-            </div>
-            <div className="flex items-center space-x-1 text-sm hover:text-pink-500 transition-colors duration-200">
-              <Heart size={16} />
-              <span className="text-xs">{Math.floor(Math.random() * 1000)}</span>
-            </div>
-            <div className="flex items-center space-x-1 text-sm hover:text-blue-500 transition-colors duration-200">
-              <BarChart2 size={16} />
-              <span className="text-xs">{Math.floor(Math.random() * 10000)}</span>
-            </div>
-          </div>
-        </div>
+    <div 
+      ref={postCardRef}
+      className={`w-full bg-primary hover:bg-secondary transition-colors duration-200 border-b border-border p-4 flex gap-3 relative overflow-hidden ${post.classified ? 'opacity-50' : ''}`}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
+      style={{ transform: `translateX(${translateX}px)` }} // Apply transform to the whole card
+    >
+      {/* Fact Banner */}
+      <div 
+        className="absolute inset-0 flex items-center justify-start bg-green-500/70 text-white text-2xl font-bold z-10"
+        style={{ opacity: factBannerOpacity, pointerEvents: 'none' }}
+      >
+        <span className="p-4">FACT</span>
       </div>
-      <div className="flex justify-around mt-4 pt-4 border-t border-gray-800">
-        <button
-          onClick={() => onClassify(false)}
-          className="flex-1 mx-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-full text-sm transition-colors duration-200"
-        >
-          Fact
-        </button>
-        <button
-          onClick={() => onClassify(true)}
-          className="flex-1 mx-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded-full text-sm transition-colors duration-200"
-        >
-          Fake
-        </button>
+      {/* Fake Banner */}
+      <div 
+        className="absolute inset-0 flex items-center justify-end bg-red-500/70 text-white text-2xl font-bold z-10"
+        style={{ opacity: fakeBannerOpacity, pointerEvents: 'none' }}
+      >
+        <span className="p-4">FAKE</span>
+      </div>
+
+      {/* Post Content - This will be swiped */}
+      <div className="flex-shrink-0">
+        <img 
+          src={post.avatar} 
+          className="h-10 w-10 rounded-full bg-secondary" 
+          alt={`${post.username}'s avatar`} 
+        />
+      </div>
+
+      <div className="flex-1">
+        <div className="flex items-center gap-2 text-sm">
+          <span className="font-bold text-text-primary hover:underline cursor-pointer">{post.username}</span>
+          <span className="text-text-secondary">@{post.handle}</span>
+          <span className="text-text-secondary">·</span>
+          <span className="text-text-secondary hover:underline cursor-pointer">{formatTimeAgo(post.timestamp)}</span>
+        </div>
+
+        <p className="text-text-primary text-[15px] leading-relaxed mt-1">
+          {post.content}
+        </p>
+        
+        {post.media && post.media.length > 0 && (
+          <div className="mt-3 rounded-2xl border border-border overflow-hidden">
+            <div className={`grid grid-cols-${post.media.length > 1 ? 2 : 1} gap-px`}>
+              {post.media.map((src, index) => (
+                <img key={index} src={src} className="w-full h-full object-cover" />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="mt-3 flex items-center justify-between max-w-sm text-text-secondary">
+          {engagementIcons.map((item, index) => (
+            <div key={index} className={`flex items-center gap-1 group ${item.color}`}>
+              <div className="p-2 rounded-full group-hover:bg-accent/10">
+                <item.icon size={18} />
+              </div>
+              {item.count && <span className="text-sm group-hover:text-current">{item.count}</span>}
+            </div>
+          ))}
+        </div>
+        {/* Removed Fact/Fake Buttons */}
       </div>
     </div>
   );

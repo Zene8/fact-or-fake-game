@@ -1,107 +1,154 @@
-import { Feed } from './components/Feed';
+import { useState } from 'react';
 import { useGameLoop } from './hooks/useGameLoop';
+import { GameScreen } from './components/GameScreen';
 import { FeedbackModal } from './components/FeedbackModal';
-import { Home, Bell, Mail, User as UserIcon, Bookmark, Settings, ShieldCheck, ShieldX, MoreHorizontal } from 'lucide-react';
+import { ProfileScreen } from './components/ProfileScreen';
+import { PostComposer } from './components/PostComposer';
+import { Avatar, AvatarImage, AvatarFallback } from './components/ui/Avatar';
+import { 
+  LayoutGrid,
+  User,
+  Circle,
+  Home,
+  Search,
+  Users,
+  Bell,
+  Mail,
+} from 'lucide-react';
 
-function App() {
+const XLogo = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className="w-6 h-6 fill-current text-text-primary">
+    <g>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+    </g>
+  </svg>
+);
+
+export default function App() {
   const game = useGameLoop();
+  const [currentView, setCurrentView] = useState('feed');
+
+  const startGame = () => {
+    game.setGameState('PLAYING');
+  };
+
+  if (game.gameState === 'START') {
+    return (
+      <div className="h-screen bg-primary flex flex-col items-center justify-center p-8 text-center overflow-hidden">
+        <div className="mb-6 animate-pulse">
+          <Circle size={80} strokeWidth={3} className="text-accent" />
+        </div>
+        <h1 className="text-7xl font-black text-text-primary mb-2 tracking-tighter">PROJECT O</h1>
+        <p className="text-text-secondary mb-8 max-w-sm text-lg font-medium">
+          The disinformation swarm is evolving. Filter the feed, protect the truth, and maintain your credibility.
+        </p>
+        <button 
+          onClick={startGame} 
+          className="bg-accent text-white px-12 py-4 rounded-full font-bold text-xl hover:opacity-90 transition-opacity active:scale-95"
+        >
+          Initialize Feed
+        </button>
+      </div>
+    );
+  }
+
+  const sidebarNavItems = [
+    { icon: LayoutGrid, label: 'Feed', view: 'feed' },
+    { icon: User, label: 'Profile', view: 'profile' },
+  ];
+
+  const bottomNavItems = [
+    { icon: Home, label: 'Home', view: 'feed' },
+    { icon: Search, label: 'Search', view: 'search' },
+    { icon: Users, label: 'Communities', view: 'communities' },
+    { icon: Bell, label: 'Notifications', view: 'notifications' },
+    { icon: Mail, label: 'Messages', view: 'messages' },
+  ];
 
   return (
-    <div className="bg-black text-white min-h-screen flex justify-center font-sans">
-      <div className="max-w-screen-xl w-full grid grid-cols-1 md:grid-cols-10 lg:grid-cols-12">
-        {/* Left Sidebar */}
-        <div className="col-span-2 lg:col-span-3 border-r border-gray-800 p-4 hidden md:flex flex-col justify-between items-start sticky top-0 h-screen">
-          <div className="flex flex-col space-y-2 mt-4"> {/* Adjusted spacing */}
-            <div className="flex items-center space-x-4 text-xl font-bold text-white cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200"> {/* Adjusted padding */}
-              <Home size={28} />
-              <span>Home</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl text-gray-400 cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200">
-              <Bell size={28} />
-              <span>Notifications</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl text-gray-400 cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200">
-              <Mail size={28} />
-              <span>Messages</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl text-gray-400 cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200">
-              <Bookmark size={28} />
-              <span>Bookmarks</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl text-gray-400 cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200">
-              <UserIcon size={28} />
-              <span>Profile</span>
-            </div>
-            <div className="flex items-center space-x-4 text-xl text-gray-400 cursor-pointer hover:bg-gray-900 p-3 rounded-full transition-colors duration-200">
-              <Settings size={28} />
-              <span>Settings</span>
-            </div>
-          </div>
-          <button className="mt-8 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg w-11/12 text-center transition-colors duration-200"> {/* Adjusted width */}
-            Post
-          </button>
-          <div className="flex items-center justify-between w-full mt-8 p-2 rounded-full hover:bg-gray-900 cursor-pointer transition-colors duration-200">
-            <div className="flex items-center">
-              <UserIcon size={40} className="rounded-full bg-gray-700 p-2" /> {/* Placeholder for user avatar */}
-              <div className="ml-3">
-                <p className="font-bold text-white">Player</p>
-                <p className="text-sm text-gray-400">@player</p>
-              </div>
-            </div>
-            <MoreHorizontal className="text-gray-400" size={20} />
-          </div>
+    <div className="min-h-screen bg-primary text-text-primary flex justify-center font-sans">
+      {/* Desktop Sidebar */}
+      <nav className="hidden md:flex flex-col w-[88px] xl:w-[275px] sticky top-0 h-screen p-2 xl:p-3 border-r border-border">
+        <div className="flex items-center justify-center xl:justify-start p-3 mb-4">
+          <Circle className="text-accent w-8 h-8" strokeWidth={3} />
         </div>
+        <div className="space-y-2">
+          {sidebarNavItems.map((item) => (
+            <div 
+              key={item.label} 
+              onClick={() => item.view && setCurrentView(item.view)}
+              className={`flex items-center justify-center xl:justify-start gap-4 p-3 rounded-full hover:bg-secondary cursor-pointer transition-colors ${currentView === item.view ? 'font-bold text-accent' : 'text-text-secondary'}`}
+            >
+              <item.icon size={26} />
+              <span className="hidden xl:inline text-xl">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </nav>
 
-        {/* Main Feed */}
-        <div className="col-span-10 md:col-span-8 lg:col-span-6 border-r border-gray-800">
-          <header className="p-4 border-b border-gray-800 sticky top-0 bg-black/80 backdrop-blur-sm z-10">
-            <h1 className="text-xl font-bold">Home</h1>
-          </header>
-          <Feed
-            posts={game.posts}
-            handleClassify={game.handleClassify}
-            viralProgress={game.viralProgress}
-          />
-        </div>
+      {/* Main Content */}
+      <main className="w-full max-w-[600px] border-r border-l border-border min-h-screen relative pb-24 md:pb-0">
+        {currentView === 'feed' && (
+          <>
+            <header className="sticky top-0 z-20 bg-primary/80 backdrop-blur-md border-b border-border">
+              <div className="flex items-center justify-between px-4 py-2">
+                <Avatar>
+                  <AvatarImage src="/src/assets/react.svg" alt="User" />
+                  <AvatarFallback>U</AvatarFallback>
+                </Avatar>
+                <XLogo />
+                <button className="bg-black text-white px-4 py-1.5 rounded-full font-bold text-sm border border-white/50">
+                  Subscribe
+                </button>
+              </div>
+              <nav className="flex">
+                <div className="flex-1 text-center py-3 font-bold border-b-4 border-accent">
+                  For you
+                </div>
+                <div className="flex-1 text-center py-3 text-text-secondary">
+                  Following
+                </div>
+              </nav>
+            </header>
+            <PostComposer />
+            {game.posts.length > 0 ? (
+              <GameScreen 
+                posts={game.posts} 
+                handleClassify={game.handleClassify} 
+                loadMorePosts={game.loadMorePosts}
+              />
+            ) : (
+              <div className="text-center p-10 text-text-secondary">Loading next round...</div>
+            )}
+          </>
+        )}
+        {currentView === 'profile' && (
+          <ProfileScreen stats={game.stats} onClose={() => setCurrentView('feed')} />
+        )}
+      </main>
 
-        {/* Right Sidebar */}
-        <div className="col-span-3 p-4 hidden lg:block sticky top-0 h-screen">
-          <div className="bg-gray-900 rounded-xl p-4 mt-4">
-            <h2 className="font-bold text-xl mb-4">Game Stats</h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <p className="text-gray-400">Score:</p>
-                <p className="font-bold text-lg">{game.score}</p>
-              </div>
-              <div className="flex items-center justify-between">
-                <p className="text-gray-400">Tier:</p>
-                <p className="font-bold text-lg">{game.tier}</p>
-              </div>
-              <div className="flex items-center justify-between">
-                <p className="text-gray-400">Correct:</p>
-                <div className="flex items-center space-x-1">
-                  <ShieldCheck className="text-green-500" />
-                  <span className="font-bold text-lg text-green-500">{game.correctCount}</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <p className="text-gray-400">Incorrect:</p>
-                <div className="flex items-center space-x-1">
-                  <ShieldX className="text-red-500" />
-                  <span className="font-bold text-lg text-red-500">{game.incorrectCount}</span>
-                </div>
-              </div>
-            </div>
+      {/* Desktop Right Sidebar - Can be used for stats */}
+      <aside className="hidden lg:block w-[350px] p-4">
+      </aside>
+
+      {/* Mobile Bottom Navigation */}
+      <footer className="md:hidden fixed bottom-0 left-0 right-0 bg-primary border-t border-border flex justify-around items-center z-10">
+        {bottomNavItems.map((item) => (
+          <div 
+            key={item.label} 
+            onClick={() => item.view && setCurrentView(item.view)}
+            className={`p-3 transition-colors ${currentView === item.view ? 'text-accent' : 'text-text-secondary'}`}
+          >
+            <item.icon size={28} />
           </div>
-        </div>
-      </div>
-      <FeedbackModal
-        isOpen={game.feedback.isOpen}
-        onClose={game.closeFeedbackModal}
-        reasoning={game.feedback.reasoning}
+        ))}
+      </footer>
+
+      <FeedbackModal 
+        isOpen={game.feedback.isOpen} 
+        reasoning={game.feedback.reasoning} 
+        onClose={() => game.setFeedback({ ...game.feedback, isOpen: false })} 
       />
     </div>
   );
 }
-
-export default App;
