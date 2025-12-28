@@ -25,47 +25,50 @@ export function PostCard({ post, onClassify }: Props) {
 
   const [translateX, setTranslateX] = useState(0);
   const [isSwiping, setIsSwiping] = useState(false);
+  const [isBeingClassified, setIsBeingClassified] = useState(false); // New state
   const startX = useRef(0);
   const currentX = useRef(0);
-  const postCardRef = useRef<HTMLDivElement>(null); // Ref for the main post card div
+  const postCardRef = useRef<HTMLDivElement>(null);
 
-  const SWIPE_THRESHOLD = 100; // Pixels to trigger a classification
+  const SWIPE_THRESHOLD = 100;
 
   const handleStart = (clientX: number) => {
-    if (post.classified) return; // Prevent swiping already classified posts
+    if (post.classified || isBeingClassified) return; // Prevent swiping if already classified or being classified
     setIsSwiping(true);
     startX.current = clientX;
     currentX.current = clientX;
     if (postCardRef.current) {
-      postCardRef.current.style.transition = 'none'; // Disable transition during swipe
+      postCardRef.current.style.transition = 'none';
     }
   };
 
   const handleMove = (clientX: number) => {
-    if (!isSwiping || post.classified) return;
+    if (!isSwiping || post.classified || isBeingClassified) return;
     currentX.current = clientX;
     const deltaX = currentX.current - startX.current;
     setTranslateX(deltaX);
   };
 
   const handleEnd = () => {
-    if (!isSwiping || post.classified) return;
+    if (!isSwiping || post.classified || isBeingClassified) return;
     setIsSwiping(false);
     const deltaX = currentX.current - startX.current;
 
     if (postCardRef.current) {
-      postCardRef.current.style.transition = 'transform 0.3s ease-out'; // Re-enable transition
+      postCardRef.current.style.transition = 'transform 0.3s ease-out';
     }
 
     if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
-      const isFake = deltaX < 0; // Swipe left for fake, right for fact
-      // Call onClassify after the animation completes
+      setIsBeingClassified(true); // Set to true when classification is triggered
+      const isFake = deltaX < 0;
+      
+      setTranslateX(isFake ? -window.innerWidth : window.innerWidth);
+
       setTimeout(() => {
         onClassify(post.id, isFake);
-      }, 300); // 300ms matches the CSS transition duration
+      }, 300);
       
     } else {
-      // Snap back to original position
       setTranslateX(0);
     }
   };

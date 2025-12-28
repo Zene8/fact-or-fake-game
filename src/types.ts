@@ -27,4 +27,7 @@ export interface GameStats {
   incorrect: number;
   score: number;
   tier: number;
+  username: string; // New field
+  email: string;    // New field
+  highScore: number; // New field
 }

@@ -90,15 +90,31 @@ export function useGameLoop() {
     if (!classifiedPost) return;
 
     const correct = (classifiedPost.type === 'Misinformation') === isMisinformation;
+    let points = 0;
+
+    // Determine points based on difficulty
+    switch (classifiedPost.difficulty) {
+      case 'easy':
+        points = 25;
+        break;
+      case 'medium':
+        points = 50;
+        break;
+      case 'hard':
+        points = 100;
+        break;
+      default:
+        points = 50; // Default for unknown difficulty
+    }
     
     if (correct) {
-      setScore(s => s + 50); // Simplified scoring
+      setScore(s => s + points);
       setCorrectCount(c => c + 1);
-      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type}. ${classifiedPost.reasoning}` });
+      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type} (${classifiedPost.difficulty}). ${classifiedPost.reasoning}` });
     } else {
-      setScore(s => s - 50); // Simplified scoring
+      setScore(s => s - points);
       setIncorrectCount(c => c + 1);
-      setFeedback({ isOpen: true, reasoning: `Incorrect. This was a ${classifiedPost.type}. ${classifiedPost.reasoning}` });
+      setFeedback({ isOpen: true, reasoning: `Incorrect. This was a ${classifiedPost.type} (${classifiedPost.difficulty}). ${classifiedPost.reasoning}` });
     }
 
     // Remove the classified post from the feed
