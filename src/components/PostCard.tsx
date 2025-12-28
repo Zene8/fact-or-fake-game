@@ -5,7 +5,7 @@ import { useState, useRef } from 'react'; // Import useState and useRef
 
 interface Props {
   post: Post;
-  onClassify: (postId: number, isFake: boolean) => void;
+  onClassify: (instanceId: string, isFake: boolean) => void;
 }
 
 export function PostCard({ post, onClassify }: Props) {
@@ -65,7 +65,7 @@ export function PostCard({ post, onClassify }: Props) {
       setTranslateX(isFake ? -window.innerWidth : window.innerWidth);
 
       setTimeout(() => {
-        onClassify(post.id, isFake);
+        onClassify(post.instanceId, isFake);
       }, 300);
       
     } else {

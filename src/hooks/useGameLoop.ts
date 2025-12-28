@@ -15,8 +15,10 @@ const shuffle = <T,>(array: T[]): T[] => {
 };
 
 // Pre-process posts (simplified as username, handle, avatar are now in posts.json)
+let instanceIdCounter = 0; // Counter for unique instanceId
 const allPosts: Post[] = postsData.map(post => ({
   ...post,
+  instanceId: `${post.id}-${instanceIdCounter++}`, // Generate unique instanceId
   classified: false, // Add a classified flag
 }));
 
@@ -32,6 +34,9 @@ export function useGameLoop() {
   });
   const [currentDifficultyLevel, setCurrentDifficultyLevel] = useState<'easy' | 'medium' | 'hard'>('easy');
   const [loadedPostsCount, setLoadedPostsCount] = useState(0);
+  const [currentStreak, setCurrentStreak] = useState(0); // New state for streak
+  const [streakMultiplier, setStreakMultiplier] = useState(1.0); // New state for multiplier
+  const [credibilityMeter, setCredibilityMeter] = useState(100); // New state for credibility meter
 
   const POSTS_PER_DIFFICULTY_ROUND = 10; // Number of posts to show before potentially increasing difficulty
   const POSTS_TO_LOAD_BATCH = 5; // Number of posts to load at a time for infinite scroll
@@ -43,6 +48,7 @@ export function useGameLoop() {
     incorrect: incorrectCount,
     score,
     tier,
+    // Add streak info to stats if needed for display
   }), [correctCount, incorrectCount, score, tier]);
 
   // Filter and shuffle posts based on current difficulty
@@ -85,41 +91,65 @@ export function useGameLoop() {
     }
   }, [gameState, posts.length, availablePostsForDifficulty.length, loadMorePosts]);
 
-  const handleClassify = (id: number, isMisinformation: boolean) => {
-    const classifiedPost = posts.find(p => p.id === id);
+  const handleClassify = (instanceId: string, isMisinformation: boolean) => {
+    const classifiedPost = posts.find(p => p.instanceId === instanceId);
     if (!classifiedPost) return;
 
     const correct = (classifiedPost.type === 'Misinformation') === isMisinformation;
-    let points = 0;
+    let basePoints = 0;
 
-    // Determine points based on difficulty
+    // Determine base points based on difficulty
     switch (classifiedPost.difficulty) {
       case 'easy':
-        points = 25;
+        basePoints = 25;
         break;
       case 'medium':
-        points = 50;
+        basePoints = 50;
         break;
       case 'hard':
-        points = 100;
+        basePoints = 100;
         break;
       default:
-        points = 50; // Default for unknown difficulty
+        basePoints = 50; // Default for unknown difficulty
     }
     
     if (correct) {
-      setScore(s => s + points);
+      setCurrentStreak(prev => prev + 1);
+      // Update multiplier based on new streak
+      setStreakMultiplier(prev => {
+        if (currentStreak + 1 >= 15) return 2.0;
+        if (currentStreak + 1 >= 10) return 1.5;
+        if (currentStreak + 1 >= 5) return 1.2;
+        return 1.0;
+      });
+      const earnedPoints = Math.round(basePoints * streakMultiplier);
+      setScore(s => s + earnedPoints);
       setCorrectCount(c => c + 1);
-      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type} (${classifiedPost.difficulty}). ${classifiedPost.reasoning}` });
+      setCredibilityMeter(prev => Math.min(100, prev + 5)); // Increase credibility
+      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type} (${classifiedPost.difficulty}). Earned ${earnedPoints} points (x${streakMultiplier.toFixed(1)} streak). ${classifiedPost.reasoning}` });
     } else {
-      setScore(s => s - points);
+      setCurrentStreak(0); // Reset streak
+      setStreakMultiplier(1.0); // Reset multiplier
+      const deductedPoints = Math.round(basePoints * streakMultiplier); // Still deduct based on current multiplier
+      setScore(s => s - deductedPoints);
       setIncorrectCount(c => c + 1);
-      setFeedback({ isOpen: true, reasoning: `Incorrect. This was a ${classifiedPost.type} (${classifiedPost.difficulty}). ${classifiedPost.reasoning}` });
+      setCredibilityMeter(prev => Math.max(0, prev - 10)); // Decrease credibility
+      setFeedback({ isOpen: true, reasoning: `Incorrect. This was a ${classifiedPost.type} (${classifiedPost.difficulty}). Lost ${deductedPoints} points (streak reset). ${classifiedPost.reasoning}` });
     }
 
     // Remove the classified post from the feed
-    setPosts(prevPosts => prevPosts.filter(post => post.id !== id));
+    setPosts(prevPosts => prevPosts.filter(post => post.instanceId !== instanceId));
   };
+
+  // Game over logic
+  useEffect(() => {
+    if (credibilityMeter <= 0) {
+      setGameState('GAMEOVER');
+    }
+  }, [credibilityMeter]);
+
+  return { posts, score, tier, gameState, setGameState, handleClassify, feedback, setFeedback, stats, round, loadMorePosts, credibilityMeter };
+}
 
   return { posts, score, tier, gameState, setGameState, handleClassify, feedback, setFeedback, stats, round, loadMorePosts };
 }

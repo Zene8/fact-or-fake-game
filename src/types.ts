@@ -10,6 +10,7 @@ export interface User {
 
 export interface Post {
   id: number;
+  instanceId: string; // New field for unique instance identification
   username: string;
   handle: string;
   avatar: string;

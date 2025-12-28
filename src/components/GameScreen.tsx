@@ -4,7 +4,7 @@ import { PostCard } from './PostCard';
 
 interface GameScreenProps {
   posts: Post[];
-  handleClassify: (postId: number, isMisinformation: boolean) => void;
+  handleClassify: (instanceId: string, isMisinformation: boolean) => void; // Updated signature
   loadMorePosts: () => void;
 }
 
@@ -40,12 +40,12 @@ export function GameScreen({ posts, handleClassify, loadMorePosts }: GameScreenP
     <div className="flex flex-col">
       {posts.map((post, index) => (
         <div 
-          key={post.id} 
+          key={post.instanceId} // Use instanceId instead of post.id
           ref={index === posts.length - 1 ? observerTarget : null}
         >
           <PostCard 
             post={post} 
-            onClassify={handleClassify}
+            onClassify={(isMisinformation) => handleClassify(post.instanceId, isMisinformation)} // Pass instanceId
           />
         </div>
       ))}
