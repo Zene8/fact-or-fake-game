@@ -1,17 +1,11 @@
+export type GameState = 'START' | 'PLAYING' | 'GAMEOVER';
+
 export interface User {
   id: number;
   name: string;
   handle: string;
   avatar: string;
-  quality?: 'low'; // For uncanny factor
-}
-
-export interface NewsOrganization {
-  id: number;
-  name: string;
-  handle: string;
-  logo: string;
-  verified_badge?: boolean; // For visual checkmark trap
+  isNewsOrg?: boolean;
 }
 
 export interface Post {
@@ -22,5 +16,15 @@ export interface Post {
   content: string;
   timestamp: string;
   type: 'Verified' | 'Misinformation';
-  reasoning: string; // Used for the educational breakdown modal
+  reasoning: string;
+  viralProgress: number; 
+  classified?: boolean;
+  difficulty: 'easy' | 'medium' | 'hard'; // Added difficulty field
+}
+
+export interface GameStats {
+  correct: number;
+  incorrect: number;
+  score: number;
+  tier: number;
 }
