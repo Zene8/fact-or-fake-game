@@ -150,6 +150,3 @@ export function useGameLoop() {
 
   return { posts, score, tier, gameState, setGameState, handleClassify, feedback, setFeedback, stats, round, loadMorePosts, credibilityMeter };
 }
-
-  return { posts, score, tier, gameState, setGameState, handleClassify, feedback, setFeedback, stats, round, loadMorePosts };
-}
