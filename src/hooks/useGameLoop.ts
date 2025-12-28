@@ -114,23 +114,25 @@ export function useGameLoop() {
     }
     
     if (correct) {
-      setCurrentStreak(prev => prev + 1);
-      // Update multiplier based on new streak
-      setStreakMultiplier(prev => {
-        if (currentStreak + 1 >= 15) return 2.0;
-        if (currentStreak + 1 >= 10) return 1.5;
-        if (currentStreak + 1 >= 5) return 1.2;
-        return 1.0;
-      });
-      const earnedPoints = Math.round(basePoints * streakMultiplier);
+      const newStreak = currentStreak + 1; // Calculate new streak
+      setCurrentStreak(newStreak);
+
+      let newMultiplier = 1.0;
+      if (newStreak >= 15) newMultiplier = 2.0;
+      else if (newStreak >= 10) newMultiplier = 1.5;
+      else if (newStreak >= 5) newMultiplier = 1.2;
+      
+      setStreakMultiplier(newMultiplier);
+
+      const earnedPoints = Math.round(basePoints * newMultiplier); // Use newMultiplier
       setScore(s => s + earnedPoints);
       setCorrectCount(c => c + 1);
       setCredibilityMeter(prev => Math.min(100, prev + 5)); // Increase credibility
-      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type} (${classifiedPost.difficulty}). Earned ${earnedPoints} points (x${streakMultiplier.toFixed(1)} streak). ${classifiedPost.reasoning}` });
+      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type} (${classifiedPost.difficulty}). Earned ${earnedPoints} points (x${newMultiplier.toFixed(1)} streak). ${classifiedPost.reasoning}` });
     } else {
       setCurrentStreak(0); // Reset streak
       setStreakMultiplier(1.0); // Reset multiplier
-      const deductedPoints = Math.round(basePoints * streakMultiplier); // Still deduct based on current multiplier
+      const deductedPoints = Math.round(basePoints * 1.0); // Always deduct with 1.0 multiplier after reset
       setScore(s => s - deductedPoints);
       setIncorrectCount(c => c + 1);
       setCredibilityMeter(prev => Math.max(0, prev - 10)); // Decrease credibility
