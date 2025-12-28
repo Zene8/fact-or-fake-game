@@ -1,34 +1,50 @@
-import type React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
-interface FeedbackModalProps {
+interface Props {
   isOpen: boolean;
-  onClose: () => void;
   reasoning: string;
+  onClose: () => void;
 }
 
-export function FeedbackModal({ isOpen, onClose, reasoning }: FeedbackModalProps) {
-  if (!isOpen) {
-    return null;
-  }
-
+export function FeedbackModal({ isOpen, reasoning, onClose }: Props) {
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-      onClick={onClose}
-    >
-      <div
-        className="bg-gray-900 rounded-lg shadow-lg p-6 max-w-sm mx-auto border border-gray-700"
-        onClick={(e: React.MouseEvent) => e.stopPropagation()}
-      >
-        <h2 className="text-xl font-bold mb-4 text-white">Incorrect</h2>
-        <p className="text-gray-300">{reasoning}</p>
-        <button
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
           onClick={onClose}
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
         >
-          Close
-        </button>
-      </div>
-    </div>
+          <motion.div
+            initial={{ scale: 0.9, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.9, y: 20 }}
+            className="bg-zinc-900 rounded-2xl max-w-md w-full shadow-xl border border-zinc-800"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-4 border-b border-zinc-800 flex justify-between items-center">
+              <h2 className="font-bold text-lg">Analysis</h2>
+              <button onClick={onClose} className="p-1 rounded-full hover:bg-zinc-800">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="p-6">
+              <p className="text-zinc-300 whitespace-pre-wrap">{reasoning}</p>
+            </div>
+            <div className="p-4 border-t border-zinc-800">
+              <button 
+                onClick={onClose}
+                className="w-full py-2.5 rounded-full bg-white text-black font-bold hover:bg-zinc-200 transition-colors"
+              >
+                Continue
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
