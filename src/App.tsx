@@ -93,17 +93,8 @@ export default function App() {
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
                 <OLogo />
-                <div className="flex items-center gap-4"> {/* New div to group score and meter */}
-                  <div className="text-text-primary font-bold text-lg">
-                    Score: {game.score}
-                  </div>
-                  {/* Credibility Meter */}
-                  <div className="w-24 h-4 bg-gray-700 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-green-500 transition-all duration-300" 
-                      style={{ width: `${game.credibilityMeter}%` }}
-                    ></div>
-                  </div>
+                <div className="text-text-primary font-bold text-lg">
+                  Score: {game.score}
                 </div>
               </div>
               <nav className="flex">
