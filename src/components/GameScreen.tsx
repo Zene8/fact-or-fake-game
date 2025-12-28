@@ -14,11 +14,15 @@ export function GameScreen({ posts, handleClassify, loadMorePosts }: GameScreenP
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        // Trigger if even a pixel of the target is visible
         if (entries[0].isIntersecting) {
           loadMorePosts();
         }
       },
-      { threshold: 1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '100px' // Start loading 100px before reaching the end
+      }
     );
 
     if (observerTarget.current) {
@@ -30,12 +34,15 @@ export function GameScreen({ posts, handleClassify, loadMorePosts }: GameScreenP
         observer.unobserve(observerTarget.current);
       }
     };
-  }, [loadMorePosts]);
+  }, [loadMorePosts, posts.length]); // Re-observe when list length changes
 
   return (
-    <div>
+    <div className="flex flex-col">
       {posts.map((post, index) => (
-        <div key={post.id} ref={index === posts.length - 1 ? observerTarget : null}>
+        <div 
+          key={post.id} 
+          ref={index === posts.length - 1 ? observerTarget : null}
+        >
           <PostCard 
             post={post} 
             onClassify={handleClassify}
