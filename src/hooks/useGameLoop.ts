@@ -86,25 +86,23 @@ export function useGameLoop() {
   }, [gameState, posts.length, availablePostsForDifficulty.length, loadMorePosts]);
 
   const handleClassify = (id: number, isMisinformation: boolean) => {
-    setPosts(prevPosts => 
-      prevPosts.map(post => 
-        post.id === id ? { ...post, classified: true } : post
-      )
-    );
+    const classifiedPost = posts.find(p => p.id === id);
+    if (!classifiedPost) return;
 
-    const post = posts.find(p => p.id === id);
-    if (!post) return;
-
-    const correct = (post.type === 'Misinformation') === isMisinformation;
+    const correct = (classifiedPost.type === 'Misinformation') === isMisinformation;
     
     if (correct) {
       setScore(s => s + 50); // Simplified scoring
       setCorrectCount(c => c + 1);
+      setFeedback({ isOpen: true, reasoning: `Correct! This was a ${classifiedPost.type}. ${classifiedPost.reasoning}` });
     } else {
       setScore(s => s - 50); // Simplified scoring
       setIncorrectCount(c => c + 1);
-      setFeedback({ isOpen: true, reasoning: post.reasoning });
+      setFeedback({ isOpen: true, reasoning: `Incorrect. This was a ${classifiedPost.type}. ${classifiedPost.reasoning}` });
     }
+
+    // Remove the classified post from the feed
+    setPosts(prevPosts => prevPosts.filter(post => post.id !== id));
   };
 
   return { posts, score, tier, gameState, setGameState, handleClassify, feedback, setFeedback, stats, round, loadMorePosts };

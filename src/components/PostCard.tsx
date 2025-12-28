@@ -59,9 +59,11 @@ export function PostCard({ post, onClassify }: Props) {
 
     if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
       const isFake = deltaX < 0; // Swipe left for fake, right for fact
-      onClassify(post.id, isFake);
-      // Animate post off-screen
-      setTranslateX(isFake ? -window.innerWidth : window.innerWidth);
+      // Call onClassify after the animation completes
+      setTimeout(() => {
+        onClassify(post.id, isFake);
+      }, 300); // 300ms matches the CSS transition duration
+      
     } else {
       // Snap back to original position
       setTranslateX(0);
