@@ -1,52 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function useUserProfile() {
-  const [score, setScore] = useState(() => {
-    const savedScore = localStorage.getItem('userScore');
-    return savedScore ? parseInt(savedScore, 10) : 1000;
-  });
+  const [score, _setScore] = useState(0);
 
-  const [round, setRound] = useState(() => {
-    const savedRound = localStorage.getItem('userRound');
-    return savedRound ? parseInt(savedRound, 10) : 1;
-  });
+  const [round, setRound] = useState(1);
 
-  const [username, setUsername] = useState(() => {
-    const savedUsername = localStorage.getItem('username');
-    return savedUsername || 'Guest'; // Default username
-  });
+  const [username, setUsername] = useState('Guest');
 
-  const [email, setEmail] = useState(() => {
-    const savedEmail = localStorage.getItem('email');
-    return savedEmail || ''; // Default empty email
-  });
+  const [email, setEmail] = useState('');
 
-  const [highScore, setHighScore] = useState(() => {
-    const savedHighScore = localStorage.getItem('highScore');
-    return savedHighScore ? parseInt(savedHighScore, 10) : 0;
-  });
+  const [highScore, setHighScore] = useState(0);
 
-  useEffect(() => {
-    localStorage.setItem('userScore', score.toString());
-    // Update high score if current score is higher
-    setHighScore(prevHighScore => Math.max(prevHighScore, score));
-  }, [score]);
-
-  useEffect(() => {
-    localStorage.setItem('userRound', round.toString());
-  }, [round]);
-
-  useEffect(() => {
-    localStorage.setItem('username', username);
-  }, [username]);
-
-  useEffect(() => {
-    localStorage.setItem('email', email);
-  }, [email]);
-
-  useEffect(() => {
-    localStorage.setItem('highScore', highScore.toString());
-  }, [highScore]);
+  const setScore = (newScore: number | ((s: number) => number)) => {
+    const updatedScore = typeof newScore === 'function' ? newScore(score) : newScore;
+    _setScore(updatedScore);
+    setHighScore(prevHighScore => Math.max(prevHighScore, updatedScore));
+  }
 
   return { score, setScore, round, setRound, username, setUsername, email, setEmail, highScore, setHighScore };
 }

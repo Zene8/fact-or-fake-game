@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #000000;
+  --color-secondary: #16181c;
+  --color-border: #2f3336;
+  --color-text-primary: #e7e9ea;
+  --color-text-secondary: #71767b;
+  --color-accent: #1d9bf0;
+}
+
 @layer base {
   body {
     @apply bg-black text-white antialiased overflow-x-hidden;

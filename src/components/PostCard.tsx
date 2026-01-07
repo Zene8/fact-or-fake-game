@@ -1,11 +1,13 @@
 import type { Post } from '../types';
 import { formatTimeAgo } from '../lib/utils';
-import { MessageCircle, Repeat, Heart, BarChart2, Upload, Bookmark, Check, X } from 'lucide-react';
+import { MessageCircle, Repeat, Heart, BarChart2, Upload, Bookmark } from 'lucide-react';
 import { useState, useRef } from 'react'; // Import useState and useRef
+
+import { Avatar, AvatarImage, AvatarFallback } from './ui/Avatar';
 
 interface Props {
   post: Post;
-  onClassify: (instanceId: string, isFake: boolean) => void;
+  onClassify: (isFake: boolean) => void;
 }
 
 export function PostCard({ post, onClassify }: Props) {
@@ -65,7 +67,7 @@ export function PostCard({ post, onClassify }: Props) {
       setTranslateX(isFake ? -window.innerWidth : window.innerWidth);
 
       setTimeout(() => {
-        onClassify(post.instanceId, isFake);
+        onClassify(isFake);
       }, 300);
       
     } else {
@@ -119,11 +121,10 @@ export function PostCard({ post, onClassify }: Props) {
 
       {/* Post Content - This will be swiped */}
       <div className="flex-shrink-0">
-        <img 
-          src={post.avatar} 
-          className="h-10 w-10 rounded-full bg-secondary" 
-          alt={`${post.username}'s avatar`} 
-        />
+        <Avatar className="h-10 w-10">
+          <AvatarImage src={post.avatar} alt={`${post.username}'s avatar`} />
+          <AvatarFallback className="bg-secondary text-text-primary">{post.username[0]}</AvatarFallback>
+        </Avatar>
       </div>
 
       <div className="flex-1">
@@ -141,7 +142,7 @@ export function PostCard({ post, onClassify }: Props) {
         {post.media && post.media.length > 0 && (
           <div className="mt-3 rounded-2xl border border-border overflow-hidden">
             <div className={`grid grid-cols-${post.media.length > 1 ? 2 : 1} gap-px`}>
-              {post.media.map((src, index) => (
+              {post.media.map((src: string, index: number) => (
                 <img key={index} src={src} className="w-full h-full object-cover" />
               ))}
             </div>

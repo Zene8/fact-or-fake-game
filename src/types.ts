@@ -1,4 +1,4 @@
-export type GameState = 'START' | 'PLAYING' | 'GAMEOVER';
+export type GameState = 'START' | 'PLAYING' | 'ROUND_OVER' | 'GAMEOVER';
 
 export interface User {
   id: number;
@@ -11,16 +11,17 @@ export interface User {
 export interface Post {
   id: number;
   instanceId: string; // New field for unique instance identification
-  username: string;
+  username:string;
   handle: string;
   avatar: string;
   content: string;
   timestamp: string;
   type: 'Verified' | 'Misinformation';
   reasoning: string;
-  viralProgress: number; 
+  viralProgress?: number; 
   classified?: boolean;
   difficulty: 'easy' | 'medium' | 'hard'; // Added difficulty field
+  media?: string[];
 }
 
 export interface GameStats {
@@ -31,4 +32,5 @@ export interface GameStats {
   username: string; // New field
   email: string;    // New field
   highScore: number; // New field
+  round: number; // New field
 }

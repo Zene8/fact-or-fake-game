@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // Import useState and useEffect
+import { useState } from 'react'; // Import useState
 import type { GameStats } from '../types';
 import { useUserProfile } from '../hooks/useUserProfile'; // Import useUserProfile
 
@@ -13,11 +13,6 @@ export function ProfileScreen({ stats, onClose }: ProfileScreenProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedUsername, setEditedUsername] = useState(username);
   const [editedEmail, setEditedEmail] = useState(email);
-
-  useEffect(() => {
-    setEditedUsername(username);
-    setEditedEmail(email);
-  }, [username, email]);
 
   const handleSave = () => {
     setUsername(editedUsername);

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useGameLoop } from './hooks/useGameLoop';
 import { GameScreen } from './components/GameScreen';
-import { FeedbackModal } from './components/FeedbackModal';
 import { ProfileScreen } from './components/ProfileScreen';
 import { PostComposer } from './components/PostComposer';
 import { Avatar, AvatarImage, AvatarFallback } from './components/ui/Avatar';
-import { 
+import { RoundTimer } from './components/ui/RoundTimer';
+import {
   LayoutGrid,
   User,
   Circle,
@@ -24,25 +24,22 @@ export default function App() {
   const game = useGameLoop();
   const [currentView, setCurrentView] = useState('feed');
 
-  const startGame = () => {
-    game.setGameState('PLAYING');
-  };
+  const restartGame = () => {
+    window.location.reload();
+  }
 
-  if (game.gameState === 'START') {
+  if (game.gameState === 'GAMEOVER') {
     return (
       <div className="h-screen bg-primary flex flex-col items-center justify-center p-8 text-center overflow-hidden">
-        <div className="mb-6 animate-pulse">
-          <Circle size={80} strokeWidth={3} className="text-accent" />
-        </div>
-        <h1 className="text-7xl font-black text-text-primary mb-2 tracking-tighter">PROJECT O</h1>
+        <h1 className="text-7xl font-black text-text-primary mb-2 tracking-tighter">Game Over</h1>
         <p className="text-text-secondary mb-8 max-w-sm text-lg font-medium">
-          The disinformation swarm is evolving. Filter the feed, protect the truth, and maintain your credibility.
+          Your final score is: {game.score}
         </p>
-        <button 
-          onClick={startGame} 
+        <button
+          onClick={restartGame}
           className="bg-accent text-white px-12 py-4 rounded-full font-bold text-xl hover:opacity-90 transition-opacity active:scale-95"
         >
-          Initialize Feed
+          Play Again
         </button>
       </div>
     );
@@ -70,8 +67,8 @@ export default function App() {
         </div>
         <div className="space-y-2">
           {sidebarNavItems.map((item) => (
-            <div 
-              key={item.label} 
+            <div
+              key={item.label}
               onClick={() => item.view && setCurrentView(item.view)}
               className={`flex items-center justify-center xl:justify-start gap-4 p-3 rounded-full hover:bg-secondary cursor-pointer transition-colors ${currentView === item.view ? 'font-bold text-accent' : 'text-text-secondary'}`}
             >
@@ -106,18 +103,26 @@ export default function App() {
                 </div>
               </nav>
             </header>
-            <div className="flex-1 overflow-y-auto custom-scrollbar pb-20 md:pb-0">
-            <PostComposer />
-            {game.posts.length > 0 ? (
-              <GameScreen 
-                posts={game.posts} 
-                handleClassify={game.handleClassify} 
-                loadMorePosts={game.loadMorePosts}
-              />
-            ) : (
-              <div className="text-center p-10 text-text-secondary">Loading next round...</div>
+            {game.gameState === 'PLAYING' && (
+              <div className="flex-shrink-0 z-30">
+                <RoundTimer timeLeft={game.timer} roundDuration={game.roundDuration} />
+              </div>
             )}
-          </div>
+            <div className="flex-1 overflow-y-auto custom-scrollbar pb-20 md:pb-0">
+              <PostComposer />
+              <GameScreen
+                posts={game.posts}
+                handleClassify={game.handleClassify}
+                round={game.round}
+                gameState={game.gameState}
+                startRound={game.startRound}
+                nextRound={game.nextRound}
+                unclassifiedPosts={game.unclassifiedPosts}
+                roundPosts={game.roundPosts}
+                feedback={game.feedback}
+                closeFeedback={game.closeFeedback}
+              />
+            </div>
           </>
         )}
         {currentView === 'profile' && (
@@ -134,8 +139,8 @@ export default function App() {
         {bottomNavItems.map((item) => {
           const isActive = item.view === 'feed' || item.view === 'profile';
           return (
-            <div 
-              key={item.label} 
+            <div
+              key={item.label}
               onClick={() => {
                 if (item.view === 'feed' || item.view === 'profile') {
                   setCurrentView(item.view);
@@ -150,12 +155,6 @@ export default function App() {
           );
         })}
       </footer>
-
-      <FeedbackModal 
-        isOpen={game.feedback.isOpen} 
-        reasoning={game.feedback.reasoning} 
-        onClose={() => game.setFeedback({ ...game.feedback, isOpen: false })} 
-      />
     </div>
   );
 }
