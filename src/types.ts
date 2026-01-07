@@ -1,4 +1,4 @@
-export type GameState = 'START' | 'PLAYING' | 'ROUND_OVER' | 'GAMEOVER';
+export type GameState = 'WELCOME' | 'START' | 'PLAYING' | 'ROUND_OVER' | 'GAMEOVER';
 
 export interface User {
   id: number;
@@ -20,7 +20,7 @@ export interface Post {
   reasoning: string;
   viralProgress?: number; 
   classified?: boolean;
-  difficulty: 'easy' | 'medium' | 'hard'; // Added difficulty field
+  difficulty: 'easy' | 'medium' | 'hard' | 'impossible'; // Added difficulty field
   media?: string[];
 }
 
@@ -28,9 +28,30 @@ export interface GameStats {
   correct: number;
   incorrect: number;
   score: number;
+  commentScore: number;
+  phishingScore: number;
   tier: number;
-  username: string; // New field
-  email: string;    // New field
-  highScore: number; // New field
-  round: number; // New field
+  username: string;
+  pfp: string;
+  email: string;
+  highScore: number;
+  round: number;
+}
+
+export interface Comment {
+  id: number;
+  user: string;
+  handle: string;
+  text: string;
+  isFake: boolean;
+  reasoning: string;
+  likes: number;
+  replies: number;
+}
+
+export interface CommentThread {
+  id: number;
+  title: string;
+  topic: string;
+  comments: Comment[];
 }

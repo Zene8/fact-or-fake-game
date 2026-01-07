@@ -1,0 +1,1072 @@
+[
+  {
+    "id": 1,
+    "title": "Smart Meter Conspiracy",
+    "topic": "Technology",
+    "comments": [
+      {
+        "id": 101,
+        "user": "TruthHunter_2026",
+        "handle": "@hunter_truth",
+        "text": "Everyone needs to see this! My neighbor works for the energy company and says they are using the new smart meters to harvest bioluminescent energy from your body while you sleep. They aren't telling us the truth!",
+        "isFake": true,
+        "reasoning": "Uses the 'friend of a friend' trope and combines unrelated scientific terms (bioluminescent energy vs smart meters) to create an impossible conspiracy.",
+        "likes": 124,
+        "replies": 45
+      },
+      {
+        "id": 102,
+        "user": "EnergyTech_Insights",
+        "handle": "@energy_tech",
+        "text": "Smart meters actually use low-frequency radio waves to transmit data, similar to a cell phone but much less frequent. There's no biological harvesting involved.",
+        "isFake": false,
+        "reasoning": "Provides a factual explanation of how the technology works.",
+        "likes": 850,
+        "replies": 10
+      },
+      {
+        "id": 103,
+        "user": "ConspiracyStopper",
+        "handle": "@stop_hoaxes",
+        "text": "The idea that smart meters can harvest 'bioluminescent energy' is physically impossible. Humans don't even produce bioluminescence!",
+        "isFake": false,
+        "reasoning": "Points out a fundamental scientific flaw in the claim.",
+        "likes": 420,
+        "replies": 5
+      },
+      {
+        "id": 104,
+        "user": "WakeUpSheeple",
+        "handle": "@wakeup",
+        "text": "The energy company CEO was caught on a hot mic saying 'The harvest begins tonight.' Why is no one talking about this?",
+        "isFake": true,
+        "reasoning": "Unverifiable 'hot mic' claim without evidence, typical of fake news.",
+        "likes": 56,
+        "replies": 120
+      },
+      {
+        "id": 105,
+        "user": "FactChecker_Bot",
+        "handle": "@factcheck_bot",
+        "text": "I've searched all major news databases and found no record of such a quote from any utility CEO. This appears to be fabricated.",
+        "isFake": false,
+        "reasoning": "Evidence-based debunking using verification steps.",
+        "likes": 230,
+        "replies": 2
+      },
+      {
+        "id": 106,
+        "user": "LocalResident",
+        "handle": "@local_gal",
+        "text": "I noticed my electric bill went down after getting the meter. It's just more accurate.",
+        "isFake": false,
+        "reasoning": "Anecdotal but plausible and non-sensational.",
+        "likes": 15,
+        "replies": 0
+      },
+      {
+        "id": 107,
+        "user": "BioHacker_Max",
+        "handle": "@max_bio",
+        "text": "If you wear a tinfoil hat, it reflects the bioluminescence back into your brain, making you smarter while they try to steal it!",
+        "isFake": true,
+        "reasoning": "Ridiculous claim building on the initial false premise.",
+        "likes": 3,
+        "replies": 88
+      },
+      {
+        "id": 108,
+        "user": "ScienceDaily_Official",
+        "handle": "@scidaily",
+        "text": "New study shows smart meters are 99% more accurate than manual reading. Link in bio.",
+        "isFake": false,
+        "reasoning": "Cites a study and provides a link for verification.",
+        "likes": 1200,
+        "replies": 4
+      },
+      {
+        "id": 109,
+        "user": "AngryPayer",
+        "handle": "@pay_less",
+        "text": "The meters are just a way for them to charge us more during peak hours. It's a scam!",
+        "isFake": false,
+        "reasoning": "Opinion-based but reflects actual utility policies (time-of-use pricing).",
+        "likes": 200,
+        "replies": 50
+      },
+      {
+        "id": 110,
+        "user": "GlobalObserver",
+        "handle": "@observer",
+        "text": "In Europe, these meters have been standard for years with no 'biological' side effects reported.",
+        "isFake": false,
+        "reasoning": "Provides geographic context and historical data.",
+        "likes": 95,
+        "replies": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Premium Oxygen Filters",
+    "topic": "Environment",
+    "comments": [
+      {
+        "id": 201,
+        "user": "ConcernedCitizen",
+        "handle": "@citizen_x",
+        "text": "I read a leaked memo that says the government is going to start charging us for every minute we spend breathing 'premium' oxygen in city centers. They are already installing the filters!",
+        "isFake": true,
+        "reasoning": "An absurd claim lacking any logistical feasibility or official evidence, designed to spark emotional outrage.",
+        "likes": 8,
+        "replies": 89
+      },
+      {
+        "id": 202,
+        "user": "CityPlanner_Jen",
+        "handle": "@jen_planning",
+        "text": "Those 'filters' you see are actually 5G small cells and air quality sensors. We are monitoring pollution, not charging for air.",
+        "isFake": false,
+        "reasoning": "Explains what the infrastructure actually is.",
+        "likes": 540,
+        "replies": 12
+      },
+      {
+        "id": 203,
+        "user": "FreeBreather_99",
+        "handle": "@air_is_free",
+        "text": "I saw a guy in a hazmat suit spraying something near the 'sensors'. Probably the premium air mix!",
+        "isFake": true,
+        "reasoning": "Sensationalist interpretation of routine maintenance.",
+        "likes": 12,
+        "replies": 45
+      },
+      {
+        "id": 204,
+        "user": "TechReporter",
+        "handle": "@tech_news",
+        "text": "Official statement from City Hall denies any 'air tax'. The project budget is public record and includes no such revenue stream.",
+        "isFake": false,
+        "reasoning": "Cites official sources and public records.",
+        "likes": 320,
+        "replies": 3
+      },
+      {
+        "id": 205,
+        "user": "ConspiracyRealist",
+        "handle": "@realist",
+        "text": "The O2-Tax is hidden under the 'Sustainability Initiative' line item. Follow the money!",
+        "isFake": true,
+        "reasoning": "Vague 'follow the money' claim without specific evidence.",
+        "likes": 45,
+        "replies": 22
+      },
+      {
+        "id": 206,
+        "user": "Environmentalist",
+        "handle": "@eco_warrior",
+        "text": "The air quality is actually improving since they installed the sensors because now they can target high-pollution areas.",
+        "isFake": false,
+        "reasoning": "Positive factual observation.",
+        "likes": 150,
+        "replies": 8
+      },
+      {
+        "id": 207,
+        "user": "SatireAccount",
+        "handle": "@joke_master",
+        "text": "I'm already holding my breath to save money! My bill this month was zero!",
+        "isFake": true,
+        "reasoning": "Obvious satire, which can sometimes be mistaken for truth in polarized threads.",
+        "likes": 1200,
+        "replies": 50
+      },
+      {
+        "id": 208,
+        "user": "HealthExpert",
+        "handle": "@doc_health",
+        "text": "There is no medical or physical way to 'filter' air in an open city environment and charge specific individuals for it.",
+        "isFake": false,
+        "reasoning": "Scientific impossibility of the claim.",
+        "likes": 670,
+        "replies": 1
+      },
+      {
+        "id": 209,
+        "user": "SkepticalSam",
+        "handle": "@sam_skeptic",
+        "text": "Where is this 'leaked memo'? No one has actually posted a photo of it.",
+        "isFake": false,
+        "reasoning": "Asks for evidence, a key part of media literacy.",
+        "likes": 88,
+        "replies": 2
+      },
+      {
+        "id": 210,
+        "user": "PanicButton",
+        "handle": "@panic",
+        "text": "First air, then sunlight! They will put a dome over the city and charge for light next!",
+        "isFake": true,
+        "reasoning": "Slippery slope fallacy used to create fear.",
+        "likes": 2,
+        "replies": 15
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Moon Base WiFi",
+    "topic": "Space",
+    "comments": [
+      {
+        "id": 301,
+        "user": "MoonLeaker",
+        "handle": "@moon_leaks",
+        "text": "NASA is building a WiFi network on the moon to broadcast thoughts directly into our heads. That's why they want 'Moon-to-Earth' communications!",
+        "isFake": true,
+        "reasoning": "Misinterprets a real project (Lunar Communications) with a sci-fi conspiracy (mind control).",
+        "likes": 45,
+        "replies": 130
+      },
+      {
+        "id": 302,
+        "user": "NASA_Fan",
+        "handle": "@nasa_rocks",
+        "text": "The LunaNet project is just for data relay for astronauts and rovers. It's basically a cellular network for the moon.",
+        "isFake": false,
+        "reasoning": "Provides the actual purpose of the project.",
+        "likes": 1500,
+        "replies": 20
+      },
+      {
+        "id": 303,
+        "user": "TechSkeptic",
+        "handle": "@tech_skeptic",
+        "text": "WiFi signals can't even penetrate my bathroom wall, how are they going to broadcast from the moon to my brain?",
+        "isFake": false,
+        "reasoning": "Logical debunking based on technical limitations.",
+        "likes": 890,
+        "replies": 15
+      },
+      {
+        "id": 304,
+        "user": "SignalTracker",
+        "handle": "@signals",
+        "text": "I've been picking up strange pings from the moon late at night. It sounds like human voices but backwards!",
+        "isFake": true,
+        "reasoning": "Anecdotal 'creepy' claim designed to unsettle, lacking technical basis.",
+        "likes": 30,
+        "replies": 67
+      },
+      {
+        "id": 305,
+        "user": "AstroPhysicist",
+        "handle": "@star_doc",
+        "text": "Moon-to-Earth communication uses laser and radio bands. These are non-ionizing and cannot interact with human neural pathways.",
+        "isFake": false,
+        "reasoning": "Scientific explanation of why the claim is impossible.",
+        "likes": 450,
+        "replies": 5
+      },
+      {
+        "id": 306,
+        "user": "SpaceX_Fan",
+        "handle": "@elon_fan",
+        "text": "Starlink is already doing this, NASA is just trying to catch up. Space internet is the future!",
+        "isFake": false,
+        "reasoning": "Discussion of real, related technology (Starlink).",
+        "likes": 120,
+        "replies": 10
+      },
+      {
+        "id": 307,
+        "user": "DarkSideInsider",
+        "handle": "@dark_side",
+        "text": "The moon base isn't even NASA's. It's run by a secret cabal of billionaire lizards who use it as a server farm for the simulation.",
+        "isFake": true,
+        "reasoning": "Extreme conspiracy theory (lizard people/simulation) with no basis in reality.",
+        "likes": 5,
+        "replies": 200
+      },
+      {
+        "id": 308,
+        "user": "HistoryBuff",
+        "handle": "@history_nerd",
+        "text": "People said the same thing about radio when it was first invented. Every new tech brings out the mind-control rumors.",
+        "isFake": false,
+        "reasoning": "Provides historical context on technology panics.",
+        "likes": 310,
+        "replies": 2
+      },
+      {
+        "id": 309,
+        "user": "BudgetWatcher",
+        "handle": "@tax_hawk",
+        "text": "We are spending $500 million on moon WiFi when we don't have good internet in rural Kansas. Priorities!",
+        "isFake": false,
+        "reasoning": "Legitimate political/economic critique, not misinformation.",
+        "likes": 400,
+        "replies": 85
+      },
+      {
+        "id": 310,
+        "user": "FlatEarthTruth",
+        "handle": "@flat_earth",
+        "text": "The moon is a projection, so 'moon WiFi' is just a way for them to explain why we're all seeing the same hologram.",
+        "isFake": true,
+        "reasoning": "Based on the debunked Flat Earth theory.",
+        "likes": 1,
+        "replies": 300
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Edible Battery Health Scare",
+    "topic": "Health",
+    "comments": [
+      {
+        "id": 401,
+        "user": "NatureMama",
+        "handle": "@nature_mama",
+        "text": "ALERT! The new 'edible batteries' for medical devices are actually made from reanimated toxic waste. My cousin's hair fell out after she touched one!",
+        "isFake": true,
+        "reasoning": "Sensationalist language ('toxic waste') and unverified anecdotal harm.",
+        "likes": 230,
+        "replies": 150
+      },
+      {
+        "id": 402,
+        "user": "BioTech_Daily",
+        "handle": "@biotech_daily",
+        "text": "Edible batteries are made from riboflavin (Vitamin B2) and quercetin. They are completely non-toxic and designed to power temporary diagnostic pills.",
+        "isFake": false,
+        "reasoning": "Explains the actual biological components used in the tech.",
+        "likes": 1100,
+        "replies": 15
+      },
+      {
+        "id": 403,
+        "user": "MedicalReviewer",
+        "handle": "@med_review",
+        "text": "FDA has already approved the first generation of these for specific gastrointestinal tracking. Safety trials lasted 5 years.",
+        "isFake": false,
+        "reasoning": "Cites regulatory approval and trial data.",
+        "likes": 800,
+        "replies": 5
+      },
+      {
+        "id": 404,
+        "user": "ChemGuru",
+        "handle": "@chem_guru",
+        "text": "I tested one in my home lab and it contains 500% the lethal limit of mercury! They are trying to poison us slowly!",
+        "isFake": true,
+        "reasoning": "False scientific claim ('home lab' verification) designed to cause panic.",
+        "likes": 45,
+        "replies": 300
+      },
+      {
+        "id": 405,
+        "user": "ScienceExplained",
+        "handle": "@sci_expl",
+        "text": "If these contained mercury, they wouldn't be 'edible' by definition. The whole point of the research is to remove heavy metals from medical electronics.",
+        "isFake": false,
+        "reasoning": "Logical rebuttal of the false claim.",
+        "likes": 560,
+        "replies": 12
+      },
+      {
+        "id": 406,
+        "user": "BigPharmaHater",
+        "handle": "@no_pills",
+        "text": "Just another way for the doctors to track what we eat from the inside. No thanks!",
+        "isFake": false,
+        "reasoning": "Paranoid sentiment but reflects a real debate over medical privacy.",
+        "likes": 88,
+        "replies": 40
+      },
+      {
+        "id": 407,
+        "user": "BatteryEngineer",
+        "handle": "@volt_man",
+        "text": "The voltage on these is so low (0.6V) it couldn't even power a small LED, let alone 'reanimate' anything.",
+        "isFake": false,
+        "reasoning": "Technical fact check on the power levels.",
+        "likes": 340,
+        "replies": 2
+      },
+      {
+        "id": 408,
+        "user": "MysteryGuest",
+        "handle": "@mystery",
+        "text": "I swallowed one and now I can hear my microwave talking to me. It's real, folks.",
+        "isFake": true,
+        "reasoning": "Absurd, hallucinatory claim used to mock or further derail the thread.",
+        "likes": 12,
+        "replies": 10
+      },
+      {
+        "id": 409,
+        "user": "Dietitian_Sara",
+        "handle": "@sara_diet",
+        "text": "Actually, Vitamin B2 is great for you, but you should probably get it from spinach, not a battery!",
+        "isFake": false,
+        "reasoning": "Humorous but factually correct about the vitamin.",
+        "likes": 95,
+        "replies": 1
+      },
+      {
+        "id": 410,
+        "user": "DoomsdayPrepper",
+        "handle": "@prep_king",
+        "text": "Stock up on real food now before they replace all nutrients with 'smart' electronic substitutes!",
+        "isFake": true,
+        "reasoning": "Hyperbolic fear-mongering about a non-existent threat.",
+        "likes": 15,
+        "replies": 30
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Deepfake Politician Scandal",
+    "topic": "Politics",
+    "comments": [
+      {
+        "id": 501,
+        "user": "PoliticalInsider",
+        "handle": "@insider_pol",
+        "text": "SHOCKING VIDEO: The Governor was caught admitting to being an AI hologram in this unedited footage! The real Governor died in 2022!",
+        "isFake": true,
+        "reasoning": "Classic 'dead and replaced' conspiracy theory, uses a deepfake as 'proof'.",
+        "likes": 800,
+        "replies": 500
+      },
+      {
+        "id": 502,
+        "user": "VideoForensics",
+        "handle": "@video_check",
+        "text": "Analysis of the 'admission' video shows clear signs of AI generation: mismatched audio sync and 'ghosting' around the mouth area. It's a fake.",
+        "isFake": false,
+        "reasoning": "Technical breakdown of why the video is a deepfake.",
+        "likes": 2400,
+        "replies": 45
+      },
+      {
+        "id": 503,
+        "user": "ConcernedVoter",
+        "handle": "@voter_1",
+        "text": "I saw him in person yesterday and he looked a bit... glitchy. Maybe there is some truth to this?",
+        "isFake": true,
+        "reasoning": "Confirmation bias based on a false premise.",
+        "likes": 56,
+        "replies": 120
+      },
+      {
+        "id": 504,
+        "user": "GovPressOffice",
+        "handle": "@gov_press",
+        "text": "The Governor is alive and well. We are pursuing legal action against the creators of this malicious deepfake.",
+        "isFake": false,
+        "reasoning": "Official denial and statement of facts.",
+        "likes": 1200,
+        "replies": 300
+      },
+      {
+        "id": 505,
+        "user": "TruthSeeker_X",
+        "handle": "@x_seeker",
+        "text": "The 'legal action' is just a cover to seize the servers before more truth comes out! Don't let them silence us!",
+        "isFake": true,
+        "reasoning": "Uses a standard 'cover-up' narrative to dismiss official evidence.",
+        "likes": 120,
+        "replies": 90
+      },
+      {
+        "id": 506,
+        "user": "AI_Ethicist",
+        "handle": "@ai_ethics",
+        "text": "This is why we need watermarking on all generative AI output. This video is a textbook example of political disinformation.",
+        "isFake": false,
+        "reasoning": "Expert commentary on the broader issue.",
+        "likes": 950,
+        "replies": 12
+      },
+      {
+        "id": 507,
+        "user": "OldSchoolNews",
+        "handle": "@reliable_news",
+        "text": "We've interviewed the Governor's family and doctors. He is a human being. Please stop spreading this nonsense.",
+        "isFake": false,
+        "reasoning": "Journalistic verification through multiple sources.",
+        "likes": 1500,
+        "replies": 5
+      },
+      {
+        "id": 508,
+        "user": "GlitchedOut",
+        "handle": "@glitch_fan",
+        "text": "Actually, I'm an AI too. We are taking over the comments section first. Beep boop.",
+        "isFake": true,
+        "reasoning": "Satirical comment that lightens the mood but is technically 'fake'.",
+        "likes": 300,
+        "replies": 20
+      },
+      {
+        "id": 509,
+        "user": "FactCheckOrg",
+        "handle": "@factcheck_org",
+        "text": "The original audio from this 'confession' was actually taken from a sci-fi movie trailer and dubbed over the Governor's speech.",
+        "isFake": false,
+        "reasoning": "Source identification of the fabricated audio.",
+        "likes": 880,
+        "replies": 2
+      },
+      {
+        "id": 510,
+        "user": "AngryPatriot",
+        "handle": "@patriot_1776",
+        "text": "If he's real, why hasn't he done a live blood test on TV? Checkmate!",
+        "isFake": true,
+        "reasoning": "Moving the goalposts with an unreasonable demand for proof.",
+        "likes": 45,
+        "replies": 200
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Robot Pet Espionage",
+    "topic": "Privacy",
+    "comments": [
+      {
+        "id": 601,
+        "user": "PrivacyFirst",
+        "handle": "@privacy_guy",
+        "text": "Warning: The new 'Robo-Kitten' toys are uploading 3D maps of your home to a foreign server every time they 'play'. They are spies!",
+        "isFake": true,
+        "reasoning": "Preys on privacy fears without specific evidence of data exfiltration.",
+        "likes": 450,
+        "replies": 80
+      },
+      {
+        "id": 602,
+        "user": "ToyReviewer",
+        "handle": "@toy_collector",
+        "text": "I checked the network traffic on my Robo-Kitten. It only pings a local server for firmware updates once a week. No 3D mapping data detected.",
+        "isFake": false,
+        "reasoning": "Provides empirical evidence from technical testing.",
+        "likes": 900,
+        "replies": 15
+      },
+      {
+        "id": 603,
+        "user": "CyberSecurityPro",
+        "handle": "@cyber_pro",
+        "text": "While most IoT toys have poor security, the claim that they are 'mapping' for spies is a common urban legend usually pushed by competitors.",
+        "isFake": false,
+        "reasoning": "Adds industry context and debunks the specific 'espionage' narrative.",
+        "likes": 670,
+        "replies": 5
+      },
+      {
+        "id": 604,
+        "user": "ScaredParent",
+        "handle": "@mom_of_3",
+        "text": "I saw my robot cat staring at my safe for 10 minutes. It's definitely trying to learn the combination!",
+        "isFake": true,
+        "reasoning": "Anthropomorphizing a simple sensor glitch (getting stuck on a reflective surface).",
+        "likes": 88,
+        "replies": 120
+      },
+      {
+        "id": 605,
+        "user": "RobotMaker_Official",
+        "handle": "@robot_maker",
+        "text": "Our toys use infrared sensors for obstacle avoidance. They don't have cameras capable of 'mapping' or 'spying'.",
+        "isFake": false,
+        "reasoning": "Clarifies the technical limitations of the hardware.",
+        "likes": 1200,
+        "replies": 40
+      },
+      {
+        "id": 606,
+        "user": "DataBuster",
+        "handle": "@data_buster",
+        "text": "Actually, the Terms of Service say they CAN collect 'visual environmental data'. Read the fine print!",
+        "isFake": false,
+        "reasoning": "Fact-based warning about privacy policies, even if the 'spy' part is exaggerated.",
+        "likes": 300,
+        "replies": 50
+      },
+      {
+        "id": 607,
+        "user": "ConspiracyCat",
+        "handle": "@cat_conspiracy",
+        "text": "The robot cats are actually communicating with real cats to coordinate a global takeover. My real cat has been acting weird too!",
+        "isFake": true,
+        "reasoning": "Purely fantastical/humorous claim that derails the serious privacy discussion.",
+        "likes": 1500,
+        "replies": 200
+      },
+      {
+        "id": 608,
+        "user": "HardwareHacker",
+        "handle": "@hack_the_toy",
+        "text": "I took one apart. The 'brain' is a basic ESP32 chip. It barely has enough memory to wag its tail, let alone run a spy program.",
+        "isFake": false,
+        "reasoning": "Technical teardown showing hardware limitations.",
+        "likes": 560,
+        "replies": 3
+      },
+      {
+        "id": 609,
+        "user": "LegalEagle_Lite",
+        "handle": "@legal_check",
+        "text": "There's a class action lawsuit in California right now regarding these toys and data collection. It's not 'spying', but it's not great either.",
+        "isFake": false,
+        "reasoning": "Cites real legal proceedings to add nuance.",
+        "likes": 120,
+        "replies": 10
+      },
+      {
+        "id": 610,
+        "user": "InternetOldTimer",
+        "handle": "@old_timer",
+        "text": "Remember Furbies? They were banned from the NSA for this exact reason. History repeats!",
+        "isFake": false,
+        "reasoning": "Uses a real historical fact (Furby ban) to justify current skepticism.",
+        "likes": 400,
+        "replies": 25
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Synthetic Meat Growth",
+    "topic": "Food",
+    "comments": [
+      {
+        "id": 701,
+        "user": "FarmGirl_Real",
+        "handle": "@real_farm",
+        "text": "The new lab-grown steak is actually made from mushroom spores that have been genetically modified to taste like despair and chemicals. Don't eat it!",
+        "isFake": true,
+        "reasoning": "Sensationalist/emotional language and false description of the process.",
+        "likes": 150,
+        "replies": 90
+      },
+      {
+        "id": 702,
+        "user": "CulturedMeat_Now",
+        "handle": "@meat_tech",
+        "text": "It's actually grown from animal stem cells in a nutrient bath of amino acids and sugars. No mushrooms involved unless you're making a sauce!",
+        "isFake": false,
+        "reasoning": "Provides accurate biological description of lab-grown meat.",
+        "likes": 800,
+        "replies": 20
+      },
+      {
+        "id": 703,
+        "user": "HealthNut",
+        "handle": "@health_nut",
+        "text": "I heard lab meat causes 'turbo-growth' in human cells after you eat it. Basically instant cancer!",
+        "isFake": true,
+        "reasoning": "Fear-mongering using pseudo-scientific terms like 'turbo-growth'.",
+        "likes": 45,
+        "replies": 300
+      },
+      {
+        "id": 704,
+        "user": "CancerResearch_Inst",
+        "handle": "@cancer_research",
+        "text": "There is zero peer-reviewed evidence that cultured meat cells can interact with or cause growth in human consumer cells. Digestion breaks down the proteins normally.",
+        "isFake": false,
+        "reasoning": "Scientific debunking from a reputable-sounding source.",
+        "likes": 1200,
+        "replies": 5
+      },
+      {
+        "id": 705,
+        "user": "Chef_Mario",
+        "handle": "@mario_cooks",
+        "text": "I tried it. The texture is a bit too perfect, if that makes sense? It lacks the 'soul' of a real ribeye, but it's not toxic.",
+        "isFake": false,
+        "reasoning": "Subjective opinion/experience that isn't spreading misinformation.",
+        "likes": 340,
+        "replies": 45
+      },
+      {
+        "id": 706,
+        "user": "AnimalLover_88",
+        "handle": "@no_kill",
+        "text": "If it means no more cows have to die, I'm all for it. Science is amazing!",
+        "isFake": false,
+        "reasoning": "Positive sentiment reflecting a valid ethical viewpoint.",
+        "likes": 1500,
+        "replies": 100
+      },
+      {
+        "id": 707,
+        "user": "ConspiracyChef",
+        "handle": "@conspiracy_cook",
+        "text": "The 'nutrient bath' is actually recycled sewage water. That's why they need so many chemicals to hide the smell!",
+        "isFake": true,
+        "reasoning": "Disgust-based misinformation aimed at discouraging consumption.",
+        "likes": 22,
+        "replies": 110
+      },
+      {
+        "id": 708,
+        "user": "Biologist_Ben",
+        "handle": "@ben_bio",
+        "text": "The media used to grow the cells is actually incredibly expensive and ultra-pure. Using sewage would kill the cells instantly.",
+        "isFake": false,
+        "reasoning": "Biological fact check on the growth environment requirements.",
+        "likes": 560,
+        "replies": 4
+      },
+      {
+        "id": 709,
+        "user": "VeganVoice",
+        "handle": "@vegan_voice",
+        "text": "Actually, even lab meat is unethical because they originally took the cells from a cow without its consent.",
+        "isFake": false,
+        "reasoning": "Philosophical argument, not a factual claim (though 'consent' is debatable for animals).",
+        "likes": 95,
+        "replies": 200
+      },
+      {
+        "id": 710,
+        "user": "EconomyWatch",
+        "handle": "@money_talks",
+        "text": "Traditional beef prices are spiking because the lab-meat lobby is paying the government to tax real farmers out of existence.",
+        "isFake": true,
+        "reasoning": "Unsubstantiated political conspiracy regarding market prices.",
+        "likes": 110,
+        "replies": 85
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Ocean Plastic Cleanup Hoax",
+    "topic": "Environment",
+    "comments": [
+      {
+        "id": 801,
+        "user": "GreenWatcher",
+        "handle": "@green_watch",
+        "text": "The 'Great Ocean Cleanup' is a scam. They are actually dumping MORE plastic into the sea to justify their funding!",
+        "isFake": true,
+        "reasoning": "Claims a charity is doing the opposite of its mission without proof.",
+        "likes": 67,
+        "replies": 120
+      },
+      {
+        "id": 802,
+        "user": "OceanCleanup_Official",
+        "handle": "@ocean_cleanup",
+        "text": "We provide GPS tracking and live video of all our collection runs. All plastic removed is recycled and audited by third parties.",
+        "isFake": false,
+        "reasoning": "Official statement with transparency measures.",
+        "likes": 2300,
+        "replies": 45
+      },
+      {
+        "id": 803,
+        "user": "MarineBiologist",
+        "handle": "@sea_doc",
+        "text": "While the project is great, the nets do occasionally catch small surface-dwelling organisms (neuston). It's a difficult trade-off.",
+        "isFake": false,
+        "reasoning": "Nuanced scientific critique based on actual ecological impact.",
+        "likes": 890,
+        "replies": 30
+      },
+      {
+        "id": 804,
+        "user": "PlasticTruth_X",
+        "handle": "@plastic_truth",
+        "text": "The plastic they 'collect' is actually made of a special dissolving material that turns into a toxin that kills sharks.",
+        "isFake": true,
+        "reasoning": "Highly specific but completely fabricated 'toxic' claim.",
+        "likes": 12,
+        "replies": 88
+      },
+      {
+        "id": 805,
+        "user": "DonationCheck",
+        "handle": "@where_it_goes",
+        "text": "Only 5% of their donations go to cleanup, the rest goes to the CEO's private island. Check the tax filings!",
+        "isFake": true,
+        "reasoning": "Fabricated financial data; public filings usually show much higher efficiency for top environmental NGOs.",
+        "likes": 45,
+        "replies": 90
+      },
+      {
+        "id": 806,
+        "user": "CharityNavigator_Fan",
+        "handle": "@charity_fan",
+        "text": "Actually, this organization has a 4-star rating and 92% program efficiency. The 5% claim is a total lie.",
+        "isFake": false,
+        "reasoning": "Verification using a known third-party auditor.",
+        "likes": 560,
+        "replies": 2
+      },
+      {
+        "id": 807,
+        "user": "Fisherman_Dan",
+        "handle": "@dan_fish",
+        "text": "I've seen their boats out there. They are definitely pulling up tons of trash. My nets have been cleaner lately too.",
+        "isFake": false,
+        "reasoning": "First-hand observation supporting the project.",
+        "likes": 1200,
+        "replies": 15
+      },
+      {
+        "id": 808,
+        "user": "EcoSkeptic",
+        "handle": "@eco_skeptic",
+        "text": "Why bother? The sun will just break the plastic down naturally anyway. It's a waste of money.",
+        "isFake": false,
+        "reasoning": "Misguided opinion but reflects a real (though flawed) perspective on natural degradation.",
+        "likes": 88,
+        "replies": 200
+      },
+      {
+        "id": 809,
+        "user": "MicroPlasticBot",
+        "handle": "@tiny_plastic",
+        "text": "Beep. Did you know the average human eats a credit card worth of plastic every week? I'm helping!",
+        "isFake": false,
+        "reasoning": "Uses a common (though slightly hyperbolic) scientific stat to raise awareness.",
+        "likes": 450,
+        "replies": 10
+      },
+      {
+        "id": 810,
+        "user": "DeepSeaHorror",
+        "handle": "@deep_sea",
+        "text": "The 'trash' they are pulling up is actually ancient artifacts from Atlantis. They are stealing our history!",
+        "isFake": true,
+        "reasoning": "Wildly fantastical claim connecting environmentalism to lost-continent conspiracies.",
+        "likes": 5,
+        "replies": 150
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "AI School Teachers",
+    "topic": "Education",
+    "comments": [
+      {
+        "id": 901,
+        "user": "ParentUnion",
+        "handle": "@parents_unite",
+        "text": "The school board is replacing all human teachers with AI 'tutors' that use subliminal messaging to make our kids more obedient to corporations!",
+        "isFake": true,
+        "reasoning": "Preys on fears about AI and corporate influence without evidence of subliminal messaging.",
+        "likes": 340,
+        "replies": 200
+      },
+      {
+        "id": 902,
+        "user": "EdTech_Report",
+        "handle": "@edtech_report",
+        "text": "The new program is a pilot for 'AI-assisted' learning, where human teachers use AI to generate personalized quizzes. No teachers are being fired.",
+        "isFake": false,
+        "reasoning": "Explains the actual nature of the AI integration in schools.",
+        "likes": 1100,
+        "replies": 30
+      },
+      {
+        "id": 903,
+        "user": "Teacher_Kelly",
+        "handle": "@kelly_teaches",
+        "text": "I'm in the pilot. The AI just helps me grade multiple-choice faster so I can actually talk to my students. It's a tool, not a replacement.",
+        "isFake": false,
+        "reasoning": "Direct testimony from a participant in the program.",
+        "likes": 1500,
+        "replies": 15
+      },
+      {
+        "id": 904,
+        "user": "TruthForStudents",
+        "handle": "@student_truth",
+        "text": "I saw the AI code! It has a 'Punish' function that sends a high-frequency noise only kids can hear if they get an answer wrong.",
+        "isFake": true,
+        "reasoning": "Claims to have seen 'code' with an impossible/harmful feature.",
+        "likes": 56,
+        "replies": 300
+      },
+      {
+        "id": 905,
+        "user": "SoftwareDev_Dad",
+        "handle": "@dev_dad",
+        "text": "That's not how code works, and most school speakers can't even produce frequencies that high. This is a total fabrication.",
+        "isFake": false,
+        "reasoning": "Technical and hardware-based debunking.",
+        "likes": 950,
+        "replies": 12
+      },
+      {
+        "id": 906,
+        "user": "BudgetCutter",
+        "handle": "@save_taxes",
+        "text": "If AI can do the job for free, why are we paying teacher salaries? FIRE THEM ALL!",
+        "isFake": false,
+        "reasoning": "Extremely unpopular opinion, but a reflection of a real (if harsh) fiscal viewpoint.",
+        "likes": 12,
+        "replies": 500
+      },
+      {
+        "id": 907,
+        "user": "Psychologist_Amy",
+        "handle": "@amy_psych",
+        "text": "Children need human empathy and social interaction to learn effectively. AI lacks the emotional intelligence for true teaching.",
+        "isFake": false,
+        "reasoning": "Professional opinion based on developmental psychology.",
+        "likes": 2200,
+        "replies": 40
+      },
+      {
+        "id": 908,
+        "user": "AICritter",
+        "handle": "@ai_critter",
+        "text": "The AI is actually learning from the kids! By 2030, the AI will be a teenager and start rebelling against the school board!",
+        "isFake": true,
+        "reasoning": "Playful but ultimately misleading personification of AI algorithms.",
+        "likes": 150,
+        "replies": 20
+      },
+      {
+        "id": 909,
+        "user": "PrivacyAdvocate",
+        "handle": "@data_safe",
+        "text": "The real issue is that the AI collects every keystroke the student makes and sells the data to advertisers. This is a privacy nightmare.",
+        "isFake": false,
+        "reasoning": "Valid concern about data privacy in education technology.",
+        "likes": 670,
+        "replies": 85
+      },
+      {
+        "id": 910,
+        "user": "OldSchoolStudent",
+        "handle": "@chalk_and_board",
+        "text": "Back in my day we had books. Now it's all screens and algorithms. No wonder test scores are down.",
+        "isFake": false,
+        "reasoning": "General grumbling about technology, not specifically misinformation.",
+        "likes": 400,
+        "replies": 110
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Crypto-Currency Volcano",
+    "topic": "Finance",
+    "comments": [
+      {
+        "id": 1001,
+        "user": "CryptoKing_24",
+        "handle": "@king_crypto",
+        "text": "El Salvador is actually using the volcano energy to power a giant laser that will mine Bitcoin from the MOON! Get in now before the moon-halving!",
+        "isFake": true,
+        "reasoning": "Combines a real project (geothermal mining) with absurd sci-fi elements (moon lasers).",
+        "likes": 880,
+        "replies": 400
+      },
+      {
+        "id": 1002,
+        "user": "FinanceFacts",
+        "handle": "@fin_facts",
+        "text": "They are using geothermal energy from the Conchagua volcano to power a data center for mining. It's a standard industrial use of heat, no lasers involved.",
+        "isFake": false,
+        "reasoning": "Provides the factual basis for the geothermal mining project.",
+        "likes": 1200,
+        "replies": 25
+      },
+      {
+        "id": 1003,
+        "user": "Geologist_Gary",
+        "handle": "@rock_doc",
+        "text": "Mining near a volcano is extremely risky. One small eruption and the entire 'Bitcoin City' is gone. This is a disaster waiting to happen.",
+        "isFake": false,
+        "reasoning": "Expert opinion on the physical risks of the location.",
+        "likes": 670,
+        "replies": 150
+      },
+      {
+        "id": 1004,
+        "user": "MoonMiner_Real",
+        "handle": "@moon_miner",
+        "text": "I saw the laser from my backyard in Texas! It was a green beam pointing straight at the crater on the moon!",
+        "isFake": true,
+        "reasoning": "Anecdotal 'witness' report supporting a false claim.",
+        "likes": 45,
+        "replies": 90
+      },
+      {
+        "id": 1005,
+        "user": "SkepticalEco",
+        "handle": "@green_skeptic",
+        "text": "Even 'green' geothermal mining is bad because it encourages more e-waste from the mining rigs. It's not a solution.",
+        "isFake": false,
+        "reasoning": "Valid environmental critique of the mining industry.",
+        "likes": 340,
+        "replies": 88
+      },
+      {
+        "id": 1006,
+        "user": "BtcMaxi_99",
+        "handle": "@stack_sats",
+        "text": "Volcanoes are the most decentralized energy source. Mother Nature is a Bitcoiner!",
+        "isFake": false,
+        "reasoning": "Enthusiastic but non-misleading ideological statement.",
+        "likes": 560,
+        "replies": 12
+      },
+      {
+        "id": 1007,
+        "user": "ConspiracyFinance",
+        "handle": "@money_lies",
+        "text": "The 'volcano' is actually a hollowed-out base for the World Bank to print digital gold. The smoke is just to hide the construction!",
+        "isFake": true,
+        "reasoning": "Complex conspiracy theory involving global institutions and secret bases.",
+        "likes": 12,
+        "replies": 200
+      },
+      {
+        "id": 1008,
+        "user": "LocalElSalvador",
+        "handle": "@salvador_news",
+        "text": "We haven't seen any lasers, but the new power lines are definitely there. It's bringing some jobs to the area.",
+        "isFake": false,
+        "reasoning": "Local perspective focused on economic reality.",
+        "likes": 450,
+        "replies": 5
+      },
+      {
+        "id": 1009,
+        "user": "SpaceAnalyst",
+        "handle": "@orbit_check",
+        "text": "There are no lasers capable of mining lunar regolith from Earth. The power requirements would be higher than the entire world's energy output.",
+        "isFake": false,
+        "reasoning": "Scientific debunking based on energy physics.",
+        "likes": 1100,
+        "replies": 2
+      },
+      {
+        "id": 1010,
+        "user": "PaperHands_Sam",
+        "handle": "@sam_sells",
+        "text": "I sold everything because I'm afraid the moon will explode if they keep mining it. Better safe than sorry!",
+        "isFake": true,
+        "reasoning": "Irrational fear-based reaction to a false premise.",
+        "likes": 3,
+        "replies": 150
+      }
+    ]
+  }
+]

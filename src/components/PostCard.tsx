@@ -7,10 +7,11 @@ import { Avatar, AvatarImage, AvatarFallback } from './ui/Avatar';
 
 interface Props {
   post: Post;
+  isRoundOver?: boolean;
   onClassify: (isFake: boolean) => void;
 }
 
-export function PostCard({ post, onClassify }: Props) {
+export function PostCard({ post, isRoundOver, onClassify }: Props) {
   const replies = Math.floor(post.id % 100);
   const retweets = Math.floor(post.id % 500);
   const likes = Math.floor(post.id % 2000);
@@ -35,7 +36,7 @@ export function PostCard({ post, onClassify }: Props) {
   const SWIPE_THRESHOLD = 100;
 
   const handleStart = (clientX: number) => {
-    if (post.classified || isBeingClassified) return; // Prevent swiping if already classified or being classified
+    if (post.classified || isBeingClassified || isRoundOver) return; // Prevent swiping if already classified or being classified or round over
     setIsSwiping(true);
     startX.current = clientX;
     currentX.current = clientX;
@@ -45,14 +46,14 @@ export function PostCard({ post, onClassify }: Props) {
   };
 
   const handleMove = (clientX: number) => {
-    if (!isSwiping || post.classified || isBeingClassified) return;
+    if (!isSwiping || post.classified || isBeingClassified || isRoundOver) return;
     currentX.current = clientX;
     const deltaX = currentX.current - startX.current;
     setTranslateX(deltaX);
   };
 
   const handleEnd = () => {
-    if (!isSwiping || post.classified || isBeingClassified) return;
+    if (!isSwiping || post.classified || isBeingClassified || isRoundOver) return;
     setIsSwiping(false);
     const deltaX = currentX.current - startX.current;
 
@@ -94,7 +95,7 @@ export function PostCard({ post, onClassify }: Props) {
   return (
     <div 
       ref={postCardRef}
-      className={`w-full bg-primary hover:bg-secondary transition-colors duration-200 border-b border-border p-4 flex gap-3 relative overflow-hidden ${post.classified ? 'opacity-50' : ''}`}
+      className={`w-full bg-primary hover:bg-secondary transition-colors duration-200 border-b border-border p-4 flex gap-3 relative overflow-hidden ${post.classified || isRoundOver ? 'opacity-50' : ''}`}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -118,6 +119,15 @@ export function PostCard({ post, onClassify }: Props) {
       >
         <span className="p-4">FAKE</span>
       </div>
+
+      {/* Missed Banner */}
+      {isRoundOver && (
+        <div className="absolute inset-0 bg-zinc-900/90 flex flex-col items-center justify-center p-6 text-center z-20">
+          <span className="text-yellow-500 font-black text-xl mb-2">MISSED</span>
+          <p className="text-sm font-bold text-white mb-1">{post.type.toUpperCase()}</p>
+          <p className="text-xs text-zinc-300">{post.reasoning}</p>
+        </div>
+      )}
 
       {/* Post Content - This will be swiped */}
       <div className="flex-shrink-0">

@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "senderName": "PayPal Security",
+    "senderEmail": "security@pay-pal-alert.com",
+    "subject": "Urgent: Your account has been limited",
+    "date": "10:42 AM",
+    "body": "Dear customer, we've noticed suspicious activity on your account. To prevent unauthorized access, we have temporarily limited your account. Please click the link below to verify your identity.\n\n[Verify Now: http://secure-paypal-login.net/auth]",
+    "isScam": true,
+    "indicators": ["Sender domain 'pay-pal-alert.com' is not official paypal.com", "Generic greeting 'Dear customer'", "Artificial urgency to trigger panic"]
+  },
+  {
+    "id": 2,
+    "senderName": "Microsoft Account Team",
+    "senderEmail": "account-security-noreply@accountprotection.microsoft.com",
+    "subject": "Microsoft account unusual sign-in activity",
+    "date": "9:15 AM",
+    "body": "We detected an unusual sign-in attempt from a new location (IP: 192.168.1.1, Moscow). If this was you, you can safely ignore this email. If not, please review your activity.\n\nReview: https://account.microsoft.com/activity",
+    "isScam": false,
+    "indicators": ["Official 'accountprotection.microsoft.com' domain", "No immediate threat or demand for password", "Link leads to legitimate microsoft.com domain"]
+  },
+  {
+    "id": 3,
+    "senderName": "Netflix Billing",
+    "senderEmail": "support@netflix-update.io",
+    "subject": "Payment Declined - Update your payment method",
+    "date": "Yesterday",
+    "body": "We're having some trouble with your current billing information. Your membership will be cancelled if you do not update your payment details immediately.\n\n[Update Payment: http://billing-netflix.com.co/login]",
+    "isScam": true,
+    "indicators": ["Non-standard .io and .com.co domains", "Aggressive 'will be cancelled' threat", "Lack of specific account details"]
+  },
+  {
+    "id": 4,
+    "senderName": "Google Workspace",
+    "senderEmail": "no-reply@google.com",
+    "subject": "Security Alert: New sign-in on Mac",
+    "date": "2 days ago",
+    "body": "Your Google Account was just signed in to from a new Mac device. If this was you, you don't need to do anything. If not, we'll help you secure your account.",
+    "isScam": false,
+    "indicators": ["Sent from verified @google.com domain", "Standard security procedure for major platforms", "Directs user to internal security settings"]
+  },
+  {
+    "id": 5,
+    "senderName": "Amazon Rewards",
+    "senderEmail": "rewards@amazon-winner.com",
+    "subject": "You've won a $1000 Amazon Gift Card!",
+    "date": "3 days ago",
+    "body": "Congratulations! You were selected as the winner of our monthly sweepstakes. To claim your $1000 Amazon Gift Card, just fill out this short survey.\n\n[Claim Prize: http://win-amazon-free.site/claim]",
+    "isScam": true,
+    "indicators": ["'Too good to be true' offer", "Sender domain 'amazon-winner.com' is suspicious", "Asks for survey/personal info to 'claim' prize"]
+  },
+  {
+    "id": 6,
+    "senderName": "LinkedIn",
+    "senderEmail": "messages-noreply@linkedin.com",
+    "subject": "You have 3 new notifications",
+    "date": "4 hours ago",
+    "body": "See what's happening on LinkedIn: Sarah Smith viewed your profile, and 2 others sent you connection requests.",
+    "isScam": false,
+    "indicators": ["Official linkedin.com domain", "Matches standard notification pattern", "Contains names of actual network members (if personalized)"]
+  },
+  {
+    "id": 7,
+    "senderName": "IRS Tax Refund",
+    "senderEmail": "refund-dept@irs-online-gov.org",
+    "subject": "Pending Tax Refund: Action Required",
+    "date": "Yesterday",
+    "body": "After the latest annual calculations of your fiscal activity, we have determined that you are eligible to receive a tax refund of $485.50. Submit your form here.\n\n[Submit Form: http://irs-tax-gov.org/form-1040]",
+    "isScam": true,
+    "indicators": ["IRS does not initiate contact by email for refunds", "Suspicious .org domain for a government agency", "Asks for financial info via external link"]
+  },
+  {
+    "id": 8,
+    "senderName": "GitHub",
+    "senderEmail": "noreply@github.com",
+    "subject": "[GitHub] A personal access token has been deleted",
+    "date": "1 week ago",
+    "body": "A personal access token (note: 'VS Code') was recently deleted from your account. If you did not perform this action, please visit your security settings.",
+    "isScam": false,
+    "indicators": ["Legitimate @github.com sender", "Informational only, no 'click here' requirement", "References specific user-created metadata"]
+  },
+  {
+    "id": 9,
+    "senderName": "Federal Express",
+    "senderEmail": "delivery@fedex-tracking.net",
+    "subject": "Delivery Exception: Package #8821944",
+    "date": "Today",
+    "body": "Your package could not be delivered due to an incorrect address. Please download the attached invoice and visit your local office to collect it.\n\n[Download Attachment: Invoice_8821.zip]",
+    "isScam": true,
+    "indicators": ["Use of .zip attachments (common malware vector)", "Generic 'Delivery Exception' without specific city", "Mismatched domain 'fedex-tracking.net'"]
+  },
+  {
+    "id": 10,
+    "senderName": "Slack",
+    "senderEmail": "no-reply-293@slack.com",
+    "subject": "New login to Slack on Android",
+    "date": "10:00 AM",
+    "body": "Your Slack account was just signed in to from a new Android device. Time: 10:00 AM UTC. Location: San Francisco, CA.",
+    "isScam": false,
+    "indicators": ["Standard Slack security alert", "Sent from legitimate slack.com sub-domain", "Provides useful context without demanding action"]
+  },
+  {
+    "id": 11,
+    "senderName": "Venmo",
+    "senderEmail": "venmo@v-enmo-service.com",
+    "subject": "You received a payment of $500.00",
+    "date": "1 hour ago",
+    "body": "A user has sent you $500.00. To claim this payment and transfer it to your bank, please log in through our secure portal immediately.\n\n[Claim Funds: http://venmo-claim-process.com/auth]",
+    "isScam": true,
+    "indicators": ["Sender domain 'v-enmo-service.com' is fake", "Venmo does not require a 'secure portal' login to claim payments", "Sense of urgency to 'claim' funds"]
+  },
+  {
+    "id": 12,
+    "senderName": "Apple Support",
+    "senderEmail": "noreply@apple.com",
+    "subject": "Your receipt from Apple",
+    "date": "Yesterday",
+    "body": "Thank you for your recent purchase. Your receipt for 'iCloud+ with 50GB storage' is attached. Total: $0.99.",
+    "isScam": false,
+    "indicators": ["Sent from official @apple.com domain", "Matches a recurring low-value subscription", "No urgent call to action"]
+  },
+  {
+    "id": 13,
+    "senderName": "Meta Security",
+    "senderEmail": "security@meta-facebook-office.com",
+    "subject": "Copyright Violation - Your account will be disabled",
+    "date": "2 hours ago",
+    "body": "We have received multiple reports of copyright violations on your profile. If you do not appeal within 24 hours, your account will be permanently deleted.\n\n[Appeal Now: http://meta-legal-appeal.net/fb-case-882]",
+    "isScam": true,
+    "indicators": ["Use of extreme threats ('account deleted')", "Suspicious 'meta-facebook-office.com' domain", "Asks for 'appeal' through an external link"]
+  },
+  {
+    "id": 14,
+    "senderName": "The New York Times",
+    "senderEmail": "nytdirect@nytimes.com",
+    "subject": "The Evening: What you need to know today",
+    "date": "6:00 PM",
+    "body": "Get the top stories of the day, curated by our editors. Today's highlights: New climate legislation and a breakthrough in fusion energy.",
+    "isScam": false,
+    "indicators": ["Legitimate @nytimes.com domain", "Standard newsletter format", "No suspicious links or requests for info"]
+  },
+  {
+    "id": 15,
+    "senderName": "Uber Support",
+    "senderEmail": "support@uber-login-help.com",
+    "subject": "Refund for your recent trip",
+    "date": "Today",
+    "body": "We noticed you were overcharged for your last ride. We have issued a refund of $15.40. Please update your banking details to receive it.\n\n[Update Details: http://uber-refund-portal.site/pay]",
+    "isScam": true,
+    "indicators": ["'Refund' hook to get banking details", "Suspicious .site domain", "Mismatched sender 'uber-login-help.com'"]
+  },
+  {
+    "id": 16,
+    "senderName": "Spotify",
+    "senderEmail": "no-reply@spotify.com",
+    "subject": "Your Year in Review is here!",
+    "date": "Dec 1st",
+    "body": "Discover your top songs and artists of the year with Spotify Wrapped. Log in to the app to see your personalized experience.",
+    "isScam": false,
+    "indicators": ["Official @spotify.com sender", "Matches expected seasonal event", "Directs user to the official app"]
+  },
+  {
+    "id": 17,
+    "senderName": "Bank of America",
+    "senderEmail": "alerts@bankofamerica.com",
+    "subject": "Low balance alert for your account",
+    "date": "Today",
+    "body": "The balance in your account ending in ...1234 has fallen below your alert threshold of $100.00.",
+    "isScam": false,
+    "indicators": ["Legitimate bankofamerica.com domain", "References specific (masked) account numbers", "Informational only"]
+  },
+  {
+    "id": 18,
+    "senderName": "Dropbox",
+    "senderEmail": "no-reply@dropbox-share.net",
+    "subject": "CEO shared 'confidential_payroll.pdf' with you",
+    "date": "9:30 AM",
+    "body": "A confidential document has been shared with you via Dropbox. Click below to view and download the file.\n\n[View Document: http://dropbox-files-access.com/share/992]",
+    "isScam": true,
+    "indicators": ["'Confidential' hook to spark curiosity", "Fake domain 'dropbox-share.net'", "Direct link to a non-dropbox.com URL"]
+  },
+  {
+    "id": 19,
+    "senderName": "Zoom Video",
+    "senderEmail": "no-reply@zoom.us",
+    "subject": "Meeting Summary: Weekly Sync",
+    "date": "Yesterday",
+    "body": "Your meeting summary for 'Weekly Sync' is now available. You can view the recording and AI-generated notes on your dashboard.",
+    "isScam": false,
+    "indicators": ["Official @zoom.us domain", "Expected follow-up from a real event", "Links to internal dashboard"]
+  },
+  {
+    "id": 20,
+    "senderName": "Geek Squad",
+    "senderEmail": "billing@geeksquad-bestbuy-renew.com",
+    "subject": "Auto-Renewal: Your $499.99 subscription has been renewed",
+    "date": "Today",
+    "body": "We have successfully renewed your annual 'Total Tech Support' for $499.99. If you did not authorize this, call our refund department immediately at +1-888-555-0123.\n\n[Order ID: #GS-9921-X]",
+    "isScam": true,
+    "indicators": ["Uses 'refund' phone number to initiate a tech support scam", "Large unauthorized charge to provoke panic", "Domain 'geeksquad-bestbuy-renew.com' is not official"]
+  },
+  {
+    "id": 21,
+    "senderName": "Steam Support",
+    "senderEmail": "noreply@steampowered.com",
+    "subject": "Recent purchase on Steam",
+    "date": "2 hours ago",
+    "body": "Thank you for your purchase of 'The Witcher 3: Wild Hunt'. This email serves as your receipt.",
+    "isScam": false,
+    "indicators": ["Verified steampowered.com domain", "Matches a specific user action", "Standard receipt format"]
+  },
+  {
+    "id": 22,
+    "senderName": "Costco Wholesale",
+    "senderEmail": "survey@costco-gift-rewards.online",
+    "subject": "Exclusive: Get a $50 Costco Coupon for 5 minutes of your time",
+    "date": "Yesterday",
+    "body": "We value your feedback. Complete our customer satisfaction survey and receive a $50 coupon instantly!\n\n[Start Survey: http://costco-rewards.online/start]",
+    "isScam": true,
+    "indicators": ["Suspicious .online domain", "Coupon for survey hook", "Costco typically doesn't send these out via third-party domains"]
+  },
+  {
+    "id": 23,
+    "senderName": "Chase Bank",
+    "senderEmail": "no-reply@chase.com",
+    "subject": "Your statement is ready to view",
+    "date": "Yesterday",
+    "body": "Your monthly credit card statement for the period ending January 5th is now available online. Sign in to your account to view it.",
+    "isScam": false,
+    "indicators": ["Official @chase.com domain", "No links in the email, directs to 'sign in' separately", "Standard banking notification"]
+  },
+  {
+    "id": 24,
+    "senderName": "Walmart Pharmacy",
+    "senderEmail": "prescriptions@walmart-meds-track.com",
+    "subject": "Your prescription is ready for pickup",
+    "date": "Today",
+    "body": "Your prescription #8829 is ready at the Elm Street location. Please bring your insurance card and a valid ID.\n\n[View Details: http://walmart-meds.net/auth]",
+    "isScam": true,
+    "indicators": ["Pharma-themed scams used to harvest ID info", "Suspicious domain 'walmart-meds-track.com'", "Unexpected 'meds' tracking via email"]
+  },
+  {
+    "id": 25,
+    "senderName": "Airbnb",
+    "senderEmail": "automated@airbnb.com",
+    "subject": "Reservation confirmed: London, UK",
+    "date": "1 week ago",
+    "body": "You're all set! Host Sarah is looking forward to your stay. View your itinerary for check-in instructions.",
+    "isScam": false,
+    "indicators": ["Official @airbnb.com sender", "Contains specific booking details", "Standard transactional email"]
+  },
+  {
+    "id": 26,
+    "senderName": "World Health Organization",
+    "senderEmail": "alerts@who-safety-brief.org",
+    "subject": "New Safety Guidelines for 2026",
+    "date": "Yesterday",
+    "body": "Attached are the updated global safety protocols for emerging health threats. All citizens are required to review this document.\n\n[Attached: WHO_Protocols_2026.exe]",
+    "isScam": true,
+    "indicators": ["Use of .exe (executable) attachments which are almost always malware", "Authoritative 'required to review' tone", "Suspicious WHO-themed domain"]
+  },
+  {
+    "id": 27,
+    "senderName": "Medium",
+    "senderEmail": "noreply@medium.com",
+    "subject": "Stories for you from the week",
+    "date": "Yesterday",
+    "body": "Based on your reading history: 'The Rise of AI Agents' and '10 Tips for Better TypeScript Code'.",
+    "isScam": false,
+    "indicators": ["Official @medium.com sender", "Personalized recommendations", "Standard content marketing"]
+  },
+  {
+    "id": 28,
+    "senderName": "FedEx",
+    "senderEmail": "tracking@fedex.com",
+    "subject": "Your package is on its way",
+    "date": "Today",
+    "body": "Tracking Number: 77129334110. Your package is scheduled for delivery by end of day tomorrow.",
+    "isScam": false,
+    "indicators": ["Official @fedex.com domain", "Specific tracking number provided", "No request for personal info or downloads"]
+  },
+  {
+    "id": 29,
+    "senderName": "DHL Express",
+    "senderEmail": "customs@dhl-shipping-clearance.net",
+    "subject": "Unpaid Customs Duty for Package #DH9921",
+    "date": "3 hours ago",
+    "body": "Your package is being held at the border. An unpaid customs duty of $2.50 is required before release. Pay now to avoid destruction of the package.\n\n[Pay Duty: http://dhl-pay-customs.site/checkout]",
+    "isScam": true,
+    "indicators": ["Small dollar amount ($2.50) to lower guard", "Threat of 'destruction' of the package", "Suspicious .site domain"]
+  },
+  {
+    "id": 30,
+    "senderName": "Substack",
+    "senderEmail": "no-reply@substack.com",
+    "subject": "New post: The Future of Media",
+    "date": "Today",
+    "body": "A writer you follow just published a new post. Click here to read the full article on Substack.",
+    "isScam": false,
+    "indicators": ["Legitimate @substack.com domain", "Standard notification for followed content", "No suspicious links"]
+  },
+  {
+    "id": 31,
+    "senderName": "BitCoin Wallet",
+    "senderEmail": "support@btc-ledger-secure.com",
+    "subject": "Security Breach: Your recovery phrase is needed",
+    "date": "10:00 AM",
+    "body": "We have detected an unauthorized attempt to access your crypto wallet. To secure your funds, we need you to re-verify your 12-word recovery phrase.\n\n[Verify Phrase: http://btc-secure-ledger.net/verify]",
+    "isScam": true,
+    "indicators": ["Requests 'recovery phrase' (never shared with legitimate services)", "Crypto-themed panic hook", "Fake security domain"]
+  },
+  {
+    "id": 32,
+    "senderName": "Discord",
+    "senderEmail": "noreply@discord.com",
+    "subject": "You missed a call from a friend",
+    "date": "Yesterday",
+    "body": "While you were away, 'User123' tried to call you on Discord. Open the app to see your messages.",
+    "isScam": false,
+    "indicators": ["Official @discord.com domain", "Encourages use of the official app", "Matches standard social notification"]
+  },
+  {
+    "id": 33,
+    "senderName": "United Airlines",
+    "senderEmail": "confirm@united-air-travel.com",
+    "subject": "Flight Cancellation - Rebook Now",
+    "date": "Today",
+    "body": "Due to weather, your flight UA882 has been cancelled. Please click the link below to select a new flight and receive your $200 travel voucher.\n\n[Rebook & Claim: http://united-travel-voucher.xyz/login]",
+    "isScam": true,
+    "indicators": ["'Weather cancellation' to explain a fake event", "Suspicious .xyz domain", "Lure of a $200 voucher"]
+  },
+  {
+    "id": 34,
+    "senderName": "T-Mobile",
+    "senderEmail": "noreply@t-mobile.com",
+    "subject": "Your bill is ready to view",
+    "date": "Yesterday",
+    "body": "Your T-Mobile statement for January is now available. Your total amount due is $75.00, which will be auto-paid on Jan 15th.",
+    "isScam": false,
+    "indicators": ["Official @t-mobile.com domain", "Matches a recurring monthly service", "Contains specific, plausible bill amount"]
+  },
+  {
+    "id": 35,
+    "senderName": "Coinbase",
+    "senderEmail": "no-reply@coinbase.com",
+    "subject": "New device sign-in: Chrome on Windows",
+    "date": "Today",
+    "body": "A new device was used to sign in to your Coinbase account. If this was not you, please disable your account immediately.",
+    "isScam": false,
+    "indicators": ["Legitimate @coinbase.com sender", "Provides a clear security action (disabling account)", "No links to external sites for verification"]
+  },
+  {
+    "id": 36,
+    "senderName": "Publisher Clearing House",
+    "senderEmail": "admin@pch-winners-circle.com",
+    "subject": "FINAL NOTICE: You are the $10,000,000 Winner!",
+    "date": "Today",
+    "body": "This is your final notice. We have tried to reach you several times. You must pay the $150 processing fee to receive your $10 million check.\n\n[Pay Fee: http://pch-payout-process.com/fee]",
+    "isScam": true,
+    "indicators": ["Requirement to pay a 'fee' to receive a prize (advance-fee fraud)", "Unrealistic prize amount", "Urgent 'Final Notice' tone"]
+  },
+  {
+    "id": 37,
+    "senderName": "Twitch",
+    "senderEmail": "no-reply@twitch.tv",
+    "subject": "A streamer you follow is live!",
+    "date": "Just now",
+    "body": "Streamer 'CodeMaster' is now live: 'Building a game in 24 hours'. Watch now on Twitch.",
+    "isScam": false,
+    "indicators": ["Official @twitch.tv domain", "Matches user follows", "Standard platform alert"]
+  },
+  {
+    "id": 38,
+    "senderName": "Ticketmaster",
+    "senderEmail": "noreply@ticketmaster.com",
+    "subject": "Your tickets for: The Concert",
+    "date": "Yesterday",
+    "body": "Your tickets are ready! Use the Ticketmaster app to enter the venue. Do not share your QR code with anyone.",
+    "isScam": false,
+    "indicators": ["Official @ticketmaster.com domain", "Specific safety advice", "Links to official app"]
+  },
+  {
+    "id": 39,
+    "senderName": "Shell Energy",
+    "senderEmail": "billing@shell-energy-payment.net",
+    "subject": "Disconnection Notice: Overdue Payment",
+    "date": "Today",
+    "body": "Our records show an overdue balance of $142.10. If payment is not received today, your energy supply will be disconnected at 5:00 PM.\n\n[Pay Immediately: http://shell-energy-pay.com/overdue]",
+    "isScam": true,
+    "indicators": ["Threat of service disconnection within hours", "Suspicious .net sender domain", "Generic billing address"]
+  },
+  {
+    "id": 40,
+    "senderName": "Adobe",
+    "senderEmail": "mail@adobe.com",
+    "subject": "Update your Creative Cloud apps",
+    "date": "Today",
+    "body": "New features are available for Photoshop and Illustrator. Open the Creative Cloud desktop app to install updates.",
+    "isScam": false,
+    "indicators": ["Official @adobe.com domain", "Directs to official software for action", "Standard product update notification"]
+  },
+  {
+    "id": 41,
+    "senderName": "HR Department",
+    "senderEmail": "hr@internal-corp-payroll.org",
+    "subject": "Revised Employee Handbook 2026",
+    "date": "Today",
+    "body": "Please find the revised 2026 Employee Handbook attached. All employees must sign and return the last page by Friday.\n\n[Attached: Handbook_2026.doc.exe]",
+    "isScam": true,
+    "indicators": ["Double file extension (.doc.exe) used to hide malware", "Unexpected email from generic 'HR' with no specific company name", "Artificial deadline"]
+  },
+  {
+    "id": 42,
+    "senderName": "Coursera",
+    "senderEmail": "no-reply@coursera.org",
+    "subject": "Don't forget: Your assignment is due tomorrow",
+    "date": "Yesterday",
+    "body": "Keep up the great work! You have an upcoming deadline for 'Introduction to Data Science'.",
+    "isScam": false,
+    "indicators": ["Official @coursera.org domain", "Matches user enrollment", "Encouraging tone"]
+  },
+  {
+    "id": 43,
+    "senderName": "Patreon",
+    "senderEmail": "binge@patreon.com",
+    "subject": "New post from a creator you support",
+    "date": "Yesterday",
+    "body": "A creator just posted something new for patrons. Check it out on the Patreon website.",
+    "isScam": false,
+    "indicators": ["Official @patreon.com domain", "Standard creator update", "No suspicious links"]
+  },
+  {
+    "id": 44,
+    "senderName": "Facebook",
+    "senderEmail": "login@facebook-support-team.com",
+    "subject": "Suspicious login attempt from North Korea",
+    "date": "Today",
+    "body": "Someone just tried to log in to your account from Pyongyang. To protect your profile, please confirm your identity by uploading a photo of your ID.\n\n[Upload ID: http://facebook-verify-id.net/secure]",
+    "isScam": true,
+    "indicators": ["Asks for a photo of an ID (very high risk)", "Scary location (North Korea) to bypass logic", "Fake support domain"]
+  },
+  {
+    "id": 45,
+    "senderName": "Evernote",
+    "senderEmail": "no-reply@evernote.com",
+    "subject": "Reset your password",
+    "date": "10:15 AM",
+    "body": "A password reset was requested for your Evernote account. If you did not request this, you can ignore this email.",
+    "isScam": false,
+    "indicators": ["Official @evernote.com domain", "Standard security procedure", "No immediate demand or threat"]
+  },
+  {
+    "id": 46,
+    "senderName": "State Farm",
+    "senderEmail": "service@statefarm-insurance-alert.com",
+    "subject": "Insurance Policy #SF9921 Suspension",
+    "date": "Yesterday",
+    "body": "Your auto insurance has been suspended due to an invalid payment method. Driving without insurance is illegal. Pay now to reactivate.\n\n[Reactivate Now: http://statefarm-policy-update.com/pay]",
+    "isScam": true,
+    "indicators": ["Threat of illegal activity (driving without insurance)", "Suspicious domain 'statefarm-insurance-alert.com'", "High-pressure urgency"]
+  },
+  {
+    "id": 47,
+    "senderName": "Nintendo",
+    "senderEmail": "no-reply@nintendo.net",
+    "subject": "Thank you for using your Nintendo Account",
+    "date": "Today",
+    "body": "You have successfully signed in. If this was you, no further action is required.",
+    "isScam": false,
+    "indicators": ["Official @nintendo.net domain", "Informational security log", "No request for action"]
+  },
+  {
+    "id": 48,
+    "senderName": "Grubhub",
+    "senderEmail": "grubhub@eat-grubhub.com",
+    "subject": "Your driver is approaching!",
+    "date": "Just now",
+    "body": "Your order from 'Burger Shack' is almost there. Get ready to eat!",
+    "isScam": false,
+    "indicators": ["Matches a real-time user order", "Sent from legitimate platform domain", "Informational only"]
+  },
+  {
+    "id": 49,
+    "senderName": "Target",
+    "senderEmail": "orders@target-package-delivery.com",
+    "subject": "Your Target Order #9910 is delayed",
+    "date": "Today",
+    "body": "We're sorry, your order is delayed. To track the new delivery date, please download the delivery schedule.\n\n[Attached: Delivery_Schedule.zip]",
+    "isScam": true,
+    "indicators": ["Use of .zip attachments for 'delivery schedules'", "Mismatched domain 'target-package-delivery.com'", "Generic order number"]
+  },
+  {
+    "id": 50,
+    "senderName": "Fitbit",
+    "senderEmail": "no-reply@fitbit.com",
+    "subject": "Your weekly progress report",
+    "date": "Sunday",
+    "body": "Great job this week! You walked 50,000 steps and reached your sleep goal 5 times.",
+    "isScam": false,
+    "indicators": ["Official @fitbit.com sender", "Contains user-specific health data", "Standard weekly wrap-up"]
+  }
+]
