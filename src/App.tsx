@@ -7,6 +7,7 @@ import { NotificationsView } from './components/NotificationsView';
 import { CommentGame } from './components/CommentGame';
 import { PhishingGame } from './components/PhishingGame';
 import { InstructionsScreen } from './components/InstructionsScreen';
+import { MisinformationGuide } from './components/MisinformationGuide';
 import { RoundTimer } from './components/ui/RoundTimer';
 import {
   LayoutGrid,
@@ -17,6 +18,7 @@ import {
   Users,
   Bell,
   Mail,
+  BookOpen, // Added import
 } from 'lucide-react';
 
 const OLogo = () => (
@@ -58,6 +60,7 @@ export default function App() {
 
   const sidebarNavItems = [
     { icon: LayoutGrid, label: 'Feed', view: 'feed' },
+    { icon: BookOpen, label: 'Guide', view: 'guide' }, // Added Guide
     { icon: MessageCircle, label: 'Comments', view: 'comments' },
     { icon: User, label: 'Profile', view: 'profile' },
     { icon: Bell, label: 'Notifications', view: 'notifications' },
@@ -66,6 +69,7 @@ export default function App() {
 
   const bottomNavItems = [
     { icon: Home, label: 'Home', view: 'feed' },
+    { icon: BookOpen, label: 'Guide', view: 'guide' }, // Added Guide
     { icon: MessageCircle, label: 'Comments', view: 'comments' },
     { icon: Users, label: 'Profile', view: 'profile' },
     { icon: Bell, label: 'Notifications', view: 'notifications' },
@@ -162,6 +166,9 @@ export default function App() {
               {currentView === 'phishing' && (
                 <PhishingGame />
               )}
+              {currentView === 'guide' && (
+                <MisinformationGuide />
+              )}
             </div>
           </>
         )}
@@ -180,9 +187,8 @@ export default function App() {
               onClick={() => {
                 setCurrentView(item.view);
               }}
-              className={`p-3 transition-colors ${
-                currentView === item.view ? 'text-accent' : 'text-text-secondary'
-              } cursor-pointer`}
+              className={`p-3 transition-colors ${currentView === item.view ? 'text-accent' : 'text-text-secondary'
+                } cursor-pointer`}
             >
               <item.icon size={28} />
             </div>
