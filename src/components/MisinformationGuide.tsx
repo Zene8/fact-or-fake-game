@@ -1,6 +1,6 @@
-
-import { motion } from 'framer-motion';
-import { ShieldAlert, Search, AlertTriangle, FileText, CheckCircle, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ShieldAlert, Search, AlertTriangle, FileText, CheckCircle, ArrowRight, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 
 
 interface MisinformationGuideProps {
@@ -8,40 +8,46 @@ interface MisinformationGuideProps {
 }
 
 export function MisinformationGuide({ onPlayNow }: MisinformationGuideProps) {
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
     const tips = [
-        // ... (keep existing tips)
         {
             icon: Search,
             title: "Verify the Source",
-            description: "Check the domain name carefully. Imitator sites often use slight misspellings (e.g., 'bbc-news.co' instead of 'bbc.com'). Look for an 'About Us' section to understand the organization's mission.",
+            description: "Check the domain name carefully. Imitator sites often use slight misspellings.",
+            example: "You see a breaking news story on 'bbc-news.co.uk.net'. The real BBC is 'bbc.co.uk'. The extra '.net' indicates it's a clone site designed to fool you.",
             color: "text-blue-400",
             bg: "bg-blue-400/10"
         },
         {
             icon: AlertTriangle,
             title: "Check Your Emotions",
-            description: "Misinformation is designed to trigger strong emotional reactions—fear, anger, or shock. If a headline makes you feel intense emotion, pause and verify before sharing.",
+            description: "Misinformation is designed to trigger strong emotional reactions—fear, anger, or shock.",
+            example: "A headline screams 'WARNING: New virus killing thousands instantly!' It uses all caps and fear to make you panic-share without checking the facts first.",
             color: "text-red-400",
             bg: "bg-red-400/10"
         },
         {
             icon: FileText,
             title: "Read Beyond the Headline",
-            description: "Headlines are often clickbait. Read the full article to see if the content actually supports the sensational claim in the title.",
+            description: "Headlines are often clickbait. Read the full article to see if the content supports the claim.",
+            example: "Headline: 'Scientists Prove Chocolate Cures Cancer'. Actual Article: '...a compound in chocolate showed promise in a limited petri dish test, but it is not a cure.'",
             color: "text-yellow-400",
             bg: "bg-yellow-400/10"
         },
         {
             icon: ShieldAlert,
             title: "Inspect Visuals",
-            description: "AI-generated images often have tell-tale signs: distorted hands, uneven textures, or background inconsistencies. Use reverse image search to find the original source.",
+            description: "AI-generated images often have tell-tale signs: distorted hands, uneven textures, or inconsistencies.",
+            example: "A viral photo of a protest shows a person with 6 fingers on one hand and text on a sign that looks like blurred gibberish—classic signs of AI generation.",
             color: "text-purple-400",
             bg: "bg-purple-400/10"
         },
         {
             icon: CheckCircle,
             title: "Cross-Reference",
-            description: "If a story is breaking news, check if other major, reputable news outlets are reporting it. If only one obscure site has the 'scoop', be skeptical.",
+            description: "If a story is breaking news, check if other major, reputable news outlets are reporting it.",
+            example: "A random blog claims aliens landed in London. You check CNN, BBC, and Sky News, and none of them mention it. If it were real, everyone would be covering it.",
             color: "text-green-400",
             bg: "bg-green-400/10"
         }
@@ -77,7 +83,7 @@ export function MisinformationGuide({ onPlayNow }: MisinformationGuideProps) {
                         Spot the Fake
                     </h1>
                     <p className="text-text-secondary font-medium text-lg leading-relaxed">
-                        Master the art of identifying misinformation in the digital age. Use these five pillars of verification.
+                        Master the art of identifying misinformation. Tap a card to see an example.
                     </p>
                 </motion.div>
 
@@ -87,25 +93,56 @@ export function MisinformationGuide({ onPlayNow }: MisinformationGuideProps) {
                     animate="show"
                     className="space-y-4"
                 >
-                    {tips.map((tip, index) => (
-                        <motion.div
-                            key={index}
-                            variants={item}
-                            className="bg-secondary/50 border border-border rounded-2xl p-5 hover:bg-secondary transition-colors"
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className={`p-3 rounded-xl ${tip.bg} ${tip.color} shrink-0`}>
-                                    <tip.icon size={24} strokeWidth={2.5} />
+                    {tips.map((tip, index) => {
+                        const isExpanded = expandedIndex === index;
+                        return (
+                            <motion.div
+                                key={index}
+                                variants={item}
+                                onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                                className={`
+                                    border border-border rounded-2xl p-5 cursor-pointer transition-all duration-300
+                                    ${isExpanded ? 'bg-secondary ring-1 ring-accent' : 'bg-secondary/50 hover:bg-secondary'}
+                                `}
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className={`p-3 rounded-xl ${tip.bg} ${tip.color} shrink-0`}>
+                                        <tip.icon size={24} strokeWidth={2.5} />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="font-bold text-xl mb-1">{tip.title}</h3>
+                                            {isExpanded ? <ChevronUp size={20} className="text-text-secondary" /> : <ChevronDown size={20} className="text-text-secondary" />}
+                                        </div>
+                                        <p className="text-text-secondary leading-relaxed">
+                                            {tip.description}
+                                        </p>
+
+                                        <AnimatePresence>
+                                            {isExpanded && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                                                    animate={{ height: "auto", opacity: 1, marginTop: 16 }}
+                                                    exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="bg-primary/50 rounded-xl p-4 border border-border/50">
+                                                        <div className="flex gap-3 mb-2">
+                                                            <Lightbulb className="text-accent shrink-0" size={20} />
+                                                            <span className="text-accent font-bold text-sm uppercase tracking-wider">Example</span>
+                                                        </div>
+                                                        <p className="text-text-primary text-sm leading-relaxed italic">
+                                                            "{tip.example}"
+                                                        </p>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-bold text-xl mb-2">{tip.title}</h3>
-                                    <p className="text-text-secondary leading-relaxed">
-                                        {tip.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
 
                 <motion.div
