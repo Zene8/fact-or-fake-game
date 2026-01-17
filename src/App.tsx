@@ -167,7 +167,7 @@ export default function App() {
                 <PhishingGame />
               )}
               {currentView === 'guide' && (
-                <MisinformationGuide />
+                <MisinformationGuide onPlayNow={() => setCurrentView('feed')} />
               )}
             </div>
           </>

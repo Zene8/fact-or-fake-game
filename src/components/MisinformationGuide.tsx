@@ -2,8 +2,14 @@
 import { motion } from 'framer-motion';
 import { ShieldAlert, Search, AlertTriangle, FileText, CheckCircle, ArrowRight } from 'lucide-react';
 
-export function MisinformationGuide() {
+
+interface MisinformationGuideProps {
+    onPlayNow: () => void;
+}
+
+export function MisinformationGuide({ onPlayNow }: MisinformationGuideProps) {
     const tips = [
+        // ... (keep existing tips)
         {
             icon: Search,
             title: "Verify the Source",
@@ -106,16 +112,19 @@ export function MisinformationGuide() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 bg-accent/10 border border-accent/20 rounded-2xl p-6 relative overflow-hidden"
+                    className="mt-8 bg-accent/10 border border-accent/20 rounded-2xl p-6 relative overflow-hidden group cursor-pointer"
+                    onClick={onPlayNow}
                 >
                     <div className="relative z-10">
                         <h3 className="font-bold text-lg text-accent mb-2">Ready to practice?</h3>
                         <p className="text-text-secondary mb-4">
                             Apply these skills in the main feed to boost your detection score.
                         </p>
-                        <div className="flex items-center gap-2 text-accent font-bold text-sm uppercase tracking-wider">
+                        <button
+                            className="flex items-center gap-2 text-accent font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all"
+                        >
                             Play Now <ArrowRight size={16} />
-                        </div>
+                        </button>
                     </div>
                 </motion.div>
             </div>
